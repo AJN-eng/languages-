@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Still Speaking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-nav">
+  <a href="index.html" class="app-nav-logo">Still Speaking</a>
+  <span class="app-nav-sep">|</span>
+  <span class="app-nav-title">Contact</span>
+  <div class="app-nav-links">
+    <a href="index.html">All Languages</a>
+    <a href="cree.html">Plains Cree</a>
+    <a href="nakoda.html">Nakoda</a>
+  </div>
+</nav>
+
+<div class="contact-wrap">
+  <h1 class="contact-title">Get in Touch</h1>
+  <p class="contact-sub">Have a correction, contribution, or question about Still Speaking? We want to hear from you — especially from community members, fluent speakers, and language educators. Your feedback directly improves this resource.</p>
+
+  <div class="form-success" id="form-success">
+    ✓ Thank you for your message. We'll be in touch soon. Your feedback helps make this resource better for everyone.
+  </div>
+
+  <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact">
+    <p style="display:none;"><label>Do not fill this: <input name="bot-field"></label></p>
+
+    <div class="form-group">
+      <label class="form-label" for="cf-name">Your Name</label>
+      <input class="form-input" type="text" id="cf-name" name="name" placeholder="Full name" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="cf-email">Email Address</label>
+      <input class="form-input" type="email" id="cf-email" name="email" placeholder="your@email.com" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="cf-type">Type of Message</label>
+      <select class="form-select" id="cf-type" name="type">
+        <option value="feedback">General Feedback</option>
+        <option value="correction">Content Correction / Error Report</option>
+        <option value="contribution">I want to contribute content</option>
+        <option value="educator">I'm a language educator or fluent speaker</option>
+        <option value="collaboration">Collaboration Inquiry</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="cf-language">Related Language</label>
+      <select class="form-select" id="cf-language" name="language">
+        <option value="general">General / Both languages</option>
+        <option value="cree">Plains Cree (Nêhiyawêwin)</option>
+        <option value="nakoda">Nakoda (Stoney / Îethka)</option>
+        <option value="other">Other language</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="cf-msg">Message</label>
+      <textarea class="form-textarea" id="cf-msg" name="message" placeholder="Your message, correction, or question..." required></textarea>
+    </div>
+
+    <button class="submit-btn" type="submit">Send Message</button>
+  </form>
+
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:1.5rem;line-height:1.6;">This form is powered by Netlify Forms and sends directly to the Still Speaking team. We particularly welcome corrections and contributions from fluent speakers and community educators.</p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Still Speaking</div>
+      <div class="footer-disclaimer">
+        <strong>⚗ Experimental Project Notice:</strong> Still Speaking is an early-stage, experimental website exploring the use of AI development tools to produce widely distributable and accessible language learning material for underserved Indigenous language communities. Content is grounded in peer-reviewed and community-published sources. This platform does not replace instruction by fluent speakers, elders, or certified language educators.
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="index.html">All Languages</a></li>
+        <li><a href="cree.html">Plains Cree</a></li>
+        <li><a href="nakoda.html">Nakoda</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">External Resources</div>
+      <ul class="footer-links">
+        <li><a href="https://dictionary.stoneynakoda.org" target="_blank">SEA Stoney Dictionary</a></li>
+        <li><a href="https://itwewina.altlab.app" target="_blank">itwêwina Cree Dict.</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>stillspeaking.netlify.app</span>
+    <span>Built with AI tools · Community verification prioritized</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var data = new FormData(form);
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  }).then(function() {
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }).catch(function() {
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  });
+});
+</script>
+</body>
+</html>
