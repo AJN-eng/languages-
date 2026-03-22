@@ -1,874 +1,140 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Still Speaking — Indigenous Language Learning</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-:root {
-  --forest: #0D1F0F;
-  --forest-mid: #162A18;
-  --forest-light: #1E3A20;
-  --gold: #C9933A;
-  --gold-light: #E2B96A;
-  --cream: #F5F0E8;
-  --cree: #52B788;
-  --cree-dark: #2D6A4F;
-  --nakoda: #C87941;
-  --nakoda-dark: #7B3F00;
-  --ink: #1A1A1A;
-  --muted: #6B6B6B;
-  --line: #E5E5E0;
-  --bg: #FAFAF7;
-  --white: #FFFFFF;
-  --r: 12px;
-  --assessment: #3730A3;
-  --assessment-bg: #EEF2FF;
+/* ── HOME-SPECIFIC STYLES ── */
+body { background: var(--forest); }
+
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--forest);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;}
- 
-/* ═══════════════════════════════
-   SCREENS / ROUTER
-═══════════════════════════════ */
-.screen{display:none;min-height:100vh;}
-.screen.active{display:block;}
- 
-/* ═══════════════════════════════
-   LANDING PAGE
-═══════════════════════════════ */
-#screen-home{
-  background:var(--forest);
-  color:var(--cream);
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-}
-.home-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:1.5rem 3rem;
-  border-bottom:1px solid rgba(255,255,255,0.07);
-  position:relative;z-index:10;
-}
-.home-logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.35rem;
-  font-weight:700;
-  color:var(--cream);
-  letter-spacing:0.04em;
-  cursor:pointer;
-}
-.home-nav-links{display:flex;gap:2rem;list-style:none;}
-.home-nav-links a{
-  color:rgba(245,240,232,0.55);
-  text-decoration:none;
-  font-size:0.82rem;
-  font-weight:500;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  cursor:pointer;
-  transition:color 0.2s;
-}
-.home-nav-links a:hover{color:var(--cream);}
- 
-.home-body{
-  flex:1;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0;
-  padding:5rem 3rem 4rem;
-  max-width:1300px;
-  margin:0 auto;
-  width:100%;
-  align-items:center;
-  position:relative;
-}
-.home-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
+.home-page::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 55% 60% at 15% 70%,rgba(45,106,79,0.22) 0%,transparent 70%),
-    radial-gradient(ellipse 45% 50% at 85% 25%,rgba(123,63,0,0.18) 0%,transparent 70%);
-  pointer-events:none;
-  z-index:0;
-}
- 
-.home-left{position:relative;z-index:2;}
-.home-eyebrow{
-  font-family:'DM Mono',monospace;
-  font-size:0.7rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:rgba(245,240,232,0.45);
-  margin-bottom:1.5rem;
-}
-.home-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(3.5rem,6vw,5.5rem);
-  font-weight:700;
-  line-height:1.05;
-  letter-spacing:-0.01em;
-  margin-bottom:1.5rem;
-}
-.home-title .gold{color:var(--gold);}
-.home-stats{
-  display:flex;
-  gap:0;
-  margin:2.5rem 0;
-  border-top:1px solid rgba(245,240,232,0.12);
-  border-bottom:1px solid rgba(245,240,232,0.12);
-  padding:1.25rem 0;
-}
-.stat-item{
-  flex:1;
-  padding-right:1.5rem;
-  border-right:1px solid rgba(245,240,232,0.12);
-}
-.stat-item:last-child{border-right:none;padding-right:0;padding-left:1.5rem;}
-.stat-item:first-child{padding-left:0;}
-.stat-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.2rem;
-  font-weight:600;
-  color:var(--cream);
-  line-height:1;
-  margin-bottom:0.2rem;
-}
-.stat-label{font-size:0.75rem;color:rgba(245,240,232,0.45);letter-spacing:0.04em;}
-.stat-tag{font-size:0.8rem;color:rgba(245,240,232,0.55);max-width:180px;line-height:1.4;}
- 
-.home-right{
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-  padding-left:4rem;
-}
-.lang-card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:var(--r);
-  padding:1.5rem 1.75rem;
-  cursor:pointer;
-  transition:all 0.25s;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.lang-card:hover{
-  background:rgba(255,255,255,0.08);
-  border-color:rgba(255,255,255,0.2);
-  transform:translateX(6px);
-}
-.lang-card-left{}
-.lang-card-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.35rem;
-  font-weight:600;
-  margin-bottom:0.2rem;
-}
-.lang-card-name.cree{color:var(--cree);}
-.lang-card-name.nakoda{color:var(--nakoda);}
-.lang-card-desc{font-size:0.8rem;color:rgba(245,240,232,0.5);margin-bottom:0.6rem;}
-.lang-pill{
-  display:inline-block;
-  font-size:0.7rem;
-  padding:0.2rem 0.6rem;
-  border-radius:999px;
-  font-weight:600;
-  letter-spacing:0.04em;
-}
-.lang-pill.cree{background:rgba(82,183,136,0.15);color:var(--cree);}
-.lang-pill.nakoda{background:rgba(200,121,65,0.15);color:var(--nakoda);}
-.lang-card-arrow{
-  font-size:1.2rem;
-  color:rgba(245,240,232,0.25);
-  transition:color 0.2s,transform 0.2s;
-}
-.lang-card:hover .lang-card-arrow{color:var(--cream);transform:translateX(4px);}
- 
-.lang-card.coming-soon{
-  opacity:0.45;
-  cursor:default;
-}
-.lang-card.coming-soon:hover{transform:none;background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);}
-.cs-badge{
-  font-size:0.65rem;
-  padding:0.15rem 0.5rem;
-  border-radius:999px;
-  background:rgba(255,255,255,0.08);
-  color:rgba(245,240,232,0.4);
-  margin-left:0.5rem;
-  vertical-align:middle;
-  font-weight:500;
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-}
- 
-/* ═══════════════════════════════
-   LANGUAGE PAGE (chapter list)
-═══════════════════════════════ */
-#screen-language{background:var(--bg);}
-.app-nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:var(--white);
-  border-bottom:1px solid var(--line);
-  padding:1rem 2.5rem;
-  display:flex;
-  align-items:center;
-  gap:1rem;
-}
-.back-btn{
-  display:flex;
-  align-items:center;
-  gap:0.4rem;
-  background:none;
-  border:none;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.85rem;
-  color:var(--muted);
-  cursor:pointer;
-  padding:0.4rem 0.75rem;
-  border-radius:6px;
-  transition:all 0.15s;
-}
-.back-btn:hover{background:var(--bg);color:var(--ink);}
-.app-nav-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.1rem;
-  font-weight:600;
-  color:var(--ink);
-}
-.app-nav-sep{color:var(--line);margin:0 0.25rem;}
- 
-.lang-header{
-  padding:3rem 2.5rem 2rem;
-  max-width:1100px;
-  margin:0 auto;
-}
-.lang-header-inner{
-  background:var(--forest);
-  border-radius:16px;
-  padding:2.5rem 3rem;
-  color:var(--cream);
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:2rem;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-}
-.lang-header-inner::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-}
-.lang-header-inner.cree-header::before{
-  background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(82,183,136,0.2) 0%,transparent 70%);
-}
-.lang-header-inner.nakoda-header::before{
-  background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(200,121,65,0.2) 0%,transparent 70%);
-}
-.lang-header-tag{
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
-  color:rgba(245,240,232,0.45);
-  margin-bottom:0.6rem;
-}
-.lang-header-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.8rem;
-  font-weight:700;
-  line-height:1.1;
-  margin-bottom:0.4rem;
-}
-.lang-header-name.cree{color:var(--cree);}
-.lang-header-name.nakoda{color:var(--nakoda);}
-.lang-header-sub{font-size:0.9rem;color:rgba(245,240,232,0.6);margin-bottom:1rem;line-height:1.5;}
-.lang-header-meta{font-size:0.8rem;color:rgba(245,240,232,0.4);}
-.lang-header-stats{
-  display:flex;
-  flex-direction:column;
-  gap:0.75rem;
-  text-align:right;
-  position:relative;z-index:1;
-}
-.lh-stat-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.5rem;
-  font-weight:600;
-  color:var(--cream);
-  line-height:1;
-}
-.lh-stat-label{font-size:0.72rem;color:rgba(245,240,232,0.4);}
- 
-.chapters-section{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 2.5rem 3rem;
-}
-.chapters-label{
-  font-family:'DM Mono',monospace;
-  font-size:0.7rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:1.25rem;
-}
-.chapters-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:1.25rem;
-}
-.ch-card{
-  background:var(--white);
-  border:1.5px solid var(--line);
-  border-radius:var(--r);
-  overflow:hidden;
-  cursor:pointer;
-  transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;
-}
-.ch-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-.ch-card:hover.cree-card{border-color:var(--cree);}
-.ch-card:hover.nakoda-card{border-color:var(--nakoda);}
-.ch-card-top{
-  padding:1.25rem 1.5rem 1rem;
-  border-bottom:1px solid var(--line);
-}
-.ch-num{
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  margin-bottom:0.35rem;
-}
-.ch-num.cree{color:var(--cree-dark);}
-.ch-num.nakoda{color:var(--nakoda-dark);}
-.ch-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.25rem;
-  font-weight:700;
-  color:var(--ink);
-  margin-bottom:0.2rem;
-  line-height:1.2;
-}
-.ch-sub{font-size:0.8rem;color:var(--muted);font-style:italic;}
-.ch-card-mid{padding:0.9rem 1.5rem;}
-.ch-lesson-list{list-style:none;}
-.ch-lesson-item{
-  display:flex;
-  align-items:center;
-  gap:0.55rem;
-  padding:0.35rem 0;
-  font-size:0.83rem;
-  color:var(--ink);
-  border-bottom:1px dashed var(--line);
-}
-.ch-lesson-item:last-child{border-bottom:none;}
-.ch-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
-.ch-dot.cree{background:var(--cree);}
-.ch-dot.nakoda{background:var(--nakoda);}
-.ch-card-bot{
-  padding:0.7rem 1.5rem;
-  background:#F8F8F5;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.ch-tag{
-  font-size:0.68rem;
-  font-weight:600;
-  padding:0.18rem 0.55rem;
-  border-radius:999px;
-  text-transform:uppercase;
-  letter-spacing:0.05em;
-}
-.ch-tag.cree{background:#D8F3DC;color:var(--cree-dark);}
-.ch-tag.nakoda{background:#F5E6D3;color:var(--nakoda-dark);}
-.ch-tag.assess{background:#EEF2FF;color:#3730A3;}
-.ch-open-btn{
-  font-size:0.75rem;
-  font-weight:600;
-  color:var(--muted);
-  display:flex;
-  align-items:center;
-  gap:0.3rem;
-}
-.ch-card:hover .ch-open-btn.cree{color:var(--cree-dark);}
-.ch-card:hover .ch-open-btn.nakoda{color:var(--nakoda-dark);}
- 
-.limitation-box{
-  background:#FFFBEB;
-  border:1px solid #FCD34D;
-  border-radius:var(--r);
-  padding:1rem 1.25rem;
-  font-size:0.82rem;
-  color:#78350F;
-  margin-top:1.5rem;
-  line-height:1.65;
-}
-.source-note{font-size:0.76rem;color:var(--muted);font-style:italic;margin-top:1rem;line-height:1.6;}
- 
-/* ═══════════════════════════════
-   CHAPTER / LESSON PAGE
-═══════════════════════════════ */
-#screen-chapter{background:var(--bg);}
-.chapter-page{max-width:860px;margin:0 auto;padding:2rem 2rem 5rem;}
- 
-.ch-page-header{
-  border-bottom:2px solid;
-  padding-bottom:1.5rem;
-  margin-bottom:2rem;
-}
-.ch-page-header.cree{border-color:var(--cree);}
-.ch-page-header.nakoda{border-color:var(--nakoda);}
- 
-.ch-page-label{
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  margin-bottom:0.4rem;
-}
-.ch-page-label.cree{color:var(--cree-dark);}
-.ch-page-label.nakoda{color:var(--nakoda-dark);}
- 
-.ch-page-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.4rem;
-  font-weight:700;
-  color:var(--ink);
-  line-height:1.15;
-  margin-bottom:0.3rem;
-}
-.ch-page-sub{font-size:0.9rem;color:var(--muted);font-style:italic;margin-bottom:1rem;}
- 
-.objectives-box{
-  background:var(--forest);
-  color:var(--cream);
-  border-radius:var(--r);
-  padding:1.5rem 1.75rem;
-  margin-bottom:2rem;
-}
-.objectives-box h4{
-  font-family:'DM Mono',monospace;
-  font-size:0.7rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:rgba(245,240,232,0.5);
-  margin-bottom:0.75rem;
-}
-.objectives-box ul{list-style:none;}
-.objectives-box li{
-  padding:0.3rem 0;
-  font-size:0.88rem;
-  color:rgba(245,240,232,0.85);
-  display:flex;
-  gap:0.6rem;
-  align-items:flex-start;
-}
-.objectives-box li::before{content:'→';color:var(--gold);flex-shrink:0;}
- 
-.lesson-section-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.4rem;
-  font-weight:700;
-  color:var(--ink);
-  margin:2rem 0 1rem;
-  padding-bottom:0.4rem;
-  border-bottom:1px solid var(--line);
-}
- 
-.vocab-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
-  gap:0.9rem;
-  margin-bottom:1.5rem;
-}
-.vocab-card{
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:0.9rem 1rem;
-  text-align:center;
-  transition:transform 0.15s,box-shadow 0.15s;
-  cursor:default;
-}
-.vocab-card:hover{transform:scale(1.03);box-shadow:0 4px 16px rgba(0,0,0,0.07);}
-.vc-native{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.2rem;
-  font-weight:700;
-  margin-bottom:0.15rem;
-}
-.vc-native.cree{color:var(--cree-dark);}
-.vc-native.nakoda{color:var(--nakoda-dark);}
-.vc-english{font-size:0.78rem;color:var(--muted);}
-.vc-pron{
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  color:#999;
-  margin-top:0.2rem;
-  font-style:italic;
-}
- 
-.grammar-note{
-  border-left:4px solid;
-  padding:1rem 1.25rem;
-  border-radius:0 8px 8px 0;
-  margin:1.25rem 0;
-  background:#F9F9F7;
-}
-.grammar-note.cree{border-left-color:var(--cree);}
-.grammar-note.nakoda{border-left-color:var(--nakoda);}
-.gn-label{
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  margin-bottom:0.35rem;
-}
-.gn-label.cree{color:var(--cree-dark);}
-.gn-label.nakoda{color:var(--nakoda-dark);}
-.grammar-note p{font-size:0.88rem;line-height:1.7;color:var(--ink);}
-.grammar-note p+p{margin-top:0.5rem;}
- 
-.dialogue-box{
-  background:var(--bg);
-  border:1px solid var(--line);
-  border-radius:var(--r);
-  padding:1.5rem;
-  margin:1.5rem 0;
-}
-.dialogue-label{
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:1rem;
-}
-.dl{display:grid;grid-template-columns:2rem 1fr;gap:0.75rem;margin-bottom:0.8rem;align-items:start;}
-.dl-spk{
-  font-family:'DM Mono',monospace;
-  font-size:0.72rem;
-  font-weight:500;
-  padding-top:0.05rem;
-}
-.dl-spk.cree{color:var(--cree-dark);}
-.dl-spk.nakoda{color:var(--nakoda-dark);}
-.dl-native{font-weight:600;font-size:0.9rem;margin-bottom:0.12rem;}
-.dl-english{color:var(--muted);font-size:0.82rem;font-style:italic;}
- 
-.number-table{width:100%;border-collapse:collapse;font-size:0.88rem;margin:1rem 0;}
-.number-table th{
-  text-align:left;
-  padding:0.55rem 1rem;
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:var(--muted);
-  border-bottom:2px solid var(--line);
-  background:#F8F8F5;
-}
-.number-table td{padding:0.55rem 1rem;border-bottom:1px solid var(--line);}
-.number-table tr:last-child td{border-bottom:none;}
-.nt-nat{font-weight:600;}
-.nt-nat.cree{color:var(--cree-dark);}
-.nt-nat.nakoda{color:var(--nakoda-dark);}
-.nt-note{font-size:0.78rem;color:var(--muted);font-style:italic;}
- 
-.info-callout{
-  background:#FFF7ED;
-  border:1px solid #FDE68A;
-  border-radius:var(--r);
-  padding:1rem 1.25rem;
-  font-size:0.85rem;
-  color:#78350F;
-  line-height:1.65;
-  margin:1rem 0;
-}
-.limitation-note{
-  background:#FFFBEB;
-  border:1px solid #FCD34D;
-  border-radius:8px;
-  padding:0.85rem 1rem;
-  font-size:0.8rem;
-  color:#78350F;
-  margin:0.75rem 0;
-}
- 
-/* ═══════════════════════════════
-   ASSESSMENT
-═══════════════════════════════ */
-.assessment-section{
-  background:var(--assessment-bg);
-  border:1px solid #C7D2FE;
-  border-radius:var(--r);
-  padding:2rem;
-  margin-top:2.5rem;
-}
-.assess-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.5rem;
-  font-weight:700;
-  color:var(--assessment);
-  margin-bottom:0.35rem;
-}
-.assess-intro{font-size:0.85rem;color:#4C46A8;margin-bottom:1.75rem;line-height:1.6;}
-.assess-part-title{
-  font-family:'DM Mono',monospace;
-  font-size:0.72rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:var(--assessment);
-  margin:1.5rem 0 0.85rem;
-  padding-bottom:0.4rem;
-  border-bottom:1px solid #C7D2FE;
-}
-.q-block{margin-bottom:1.4rem;}
-.q-text{font-weight:600;font-size:0.88rem;margin-bottom:0.6rem;color:var(--ink);}
-.opts{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
-.opt-btn{
-  padding:0.6rem 1rem;
-  border:1.5px solid #C7D2FE;
-  border-radius:8px;
-  background:#fff;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.86rem;
-  cursor:pointer;
-  text-align:left;
-  transition:all 0.15s;
-  color:var(--ink);
-}
-.opt-btn:hover:not(:disabled){background:var(--assessment-bg);border-color:#818CF8;}
-.opt-btn.correct{background:#D1FAE5;border-color:#10B981;color:#065F46;}
-.opt-btn.wrong{background:#FEE2E2;border-color:#EF4444;color:#7F1D1D;}
-.ans-input{
-  width:100%;
-  padding:0.6rem 0.85rem;
-  border:1.5px solid #C7D2FE;
-  border-radius:8px;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.88rem;
-  background:#fff;
-  color:var(--ink);
-  transition:border-color 0.2s;
-}
-.ans-input:focus{outline:none;border-color:#6366F1;}
-.ans-textarea{
-  width:100%;
-  padding:0.6rem 0.85rem;
-  border:1.5px solid #C7D2FE;
-  border-radius:8px;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.88rem;
-  background:#fff;
-  color:var(--ink);
-  resize:vertical;
-  min-height:80px;
-}
-.check-btn{
-  margin-top:0.6rem;
-  padding:0.55rem 1.4rem;
-  background:#4F46E5;
-  color:#fff;
-  border:none;
-  border-radius:8px;
-  font-family:'DM Sans',sans-serif;
-  font-weight:600;
-  font-size:0.84rem;
-  cursor:pointer;
-  transition:background 0.2s;
-}
-.check-btn:hover{background:#3730A3;}
-.fb{font-size:0.83rem;margin-top:0.4rem;font-weight:500;}
-.fb.ok{color:#065F46;}
-.fb.no{color:#7F1D1D;}
- 
-/* ═══════════════════════════════
-   CONTACT PAGE
-═══════════════════════════════ */
-#screen-contact{background:var(--bg);}
-.contact-wrap{max-width:640px;margin:0 auto;padding:3rem 2rem 5rem;}
-.contact-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.2rem;
-  font-weight:700;
-  margin-bottom:0.4rem;
-}
-.contact-sub{font-size:0.9rem;color:var(--muted);margin-bottom:2rem;line-height:1.6;}
-.form-group{margin-bottom:1.25rem;}
-.form-label{display:block;font-size:0.83rem;font-weight:600;margin-bottom:0.4rem;color:var(--ink);}
-.form-input{
-  width:100%;
-  padding:0.65rem 0.9rem;
-  border:1.5px solid var(--line);
-  border-radius:8px;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.9rem;
-  background:var(--white);
-  color:var(--ink);
-  transition:border-color 0.2s;
-}
-.form-input:focus{outline:none;border-color:var(--cree);}
-.form-select{
-  width:100%;
-  padding:0.65rem 0.9rem;
-  border:1.5px solid var(--line);
-  border-radius:8px;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.9rem;
-  background:var(--white);
-  color:var(--ink);
-  cursor:pointer;
-}
-.form-textarea{
-  width:100%;
-  padding:0.65rem 0.9rem;
-  border:1.5px solid var(--line);
-  border-radius:8px;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.9rem;
-  background:var(--white);
-  color:var(--ink);
-  resize:vertical;
-  min-height:120px;
-  transition:border-color 0.2s;
-}
-.form-textarea:focus{outline:none;border-color:var(--cree);}
-.submit-btn{
-  width:100%;
-  padding:0.8rem;
-  background:var(--forest);
-  color:var(--cream);
-  border:none;
-  border-radius:8px;
-  font-family:'DM Sans',sans-serif;
-  font-weight:600;
-  font-size:0.95rem;
-  cursor:pointer;
-  transition:background 0.2s;
-  margin-top:0.5rem;
-}
-.submit-btn:hover{background:var(--forest-light);}
-.form-success{
-  background:#D1FAE5;
-  border:1px solid #10B981;
-  border-radius:var(--r);
-  padding:1.25rem 1.5rem;
-  color:#065F46;
-  font-size:0.9rem;
-  line-height:1.65;
-  display:none;
-}
- 
-/* ═══════════════════════════════
-   FOOTER
-═══════════════════════════════ */
-.site-footer{
-  background:var(--forest);
-  color:rgba(245,240,232,0.5);
-  padding:3rem 2.5rem;
-}
-.footer-inner{
-  max-width:1100px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr;
-  gap:3rem;
-}
-.footer-logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.2rem;
-  font-weight:700;
-  color:var(--cream);
-  margin-bottom:0.75rem;
-}
-.footer-about{font-size:0.82rem;line-height:1.75;margin-bottom:1rem;}
-.footer-disclaimer{
-  font-size:0.75rem;
-  line-height:1.7;
-  padding:0.85rem 1rem;
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:8px;
-  color:rgba(245,240,232,0.4);
-}
-.footer-disclaimer strong{color:rgba(245,240,232,0.65);}
-.footer-col-title{
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:rgba(245,240,232,0.35);
-  margin-bottom:0.85rem;
-}
-.footer-links{list-style:none;}
-.footer-links li{margin-bottom:0.5rem;}
-.footer-links a{
-  font-size:0.83rem;
-  color:rgba(245,240,232,0.5);
-  cursor:pointer;
-  text-decoration:none;
-  transition:color 0.2s;
-}
-.footer-links a:hover{color:var(--cream);}
-.footer-bottom{
-  max-width:1100px;
-  margin:1.5rem auto 0;
-  padding-top:1.25rem;
-  border-top:1px solid rgba(255,255,255,0.07);
-  font-size:0.75rem;
-  color:rgba(245,240,232,0.25);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
- 
-@media(max-width:768px){
-  .home-body{grid-template-columns:1fr;padding:3rem 1.5rem;}
-  .home-right{padding-left:0;}
-  .home-nav{padding:1rem 1.5rem;}
-  .home-nav-links{display:none;}
-  .lang-header-inner{grid-template-columns:1fr;padding:1.75rem;}
-  .lang-header-stats{text-align:left;flex-direction:row;}
-  .footer-inner{grid-template-columns:1fr;}
-  .chapters-grid{grid-template-columns:1fr;}
-  .app-nav{padding:1rem 1.25rem;}
-  .chapter-page{padding:1.25rem 1.25rem 4rem;}
+    radial-gradient(ellipse 55% 60% at 15% 70%, rgba(45,106,79,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 50% at 85% 25%, rgba(123,63,0,0.18) 0%, transparent 70%);
+}
+.home-nav {
+  position: relative; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.home-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--cream); letter-spacing: 0.04em; text-decoration: none;
+}
+.home-nav-links { display: flex; gap: 2rem; list-style: none; }
+.home-nav-links a {
+  color: rgba(245,240,232,0.55); text-decoration: none;
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;
+}
+.home-nav-links a:hover { color: var(--cream); }
+
+.home-body {
+  flex: 1; position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; padding: 5rem 3rem 4rem;
+  max-width: 1300px; margin: 0 auto; width: 100%;
+  align-items: center;
+}
+.home-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(245,240,232,0.4); margin-bottom: 1.5rem;
+}
+.home-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 700; line-height: 1.05;
+  letter-spacing: -0.01em; margin-bottom: 1.5rem;
+}
+.home-title em { font-style: italic; }
+.home-title .gold { color: var(--gold); }
+.home-stats {
+  display: flex; gap: 0;
+  border-top: 1px solid rgba(245,240,232,0.1);
+  border-bottom: 1px solid rgba(245,240,232,0.1);
+  padding: 1.25rem 0; margin: 2rem 0;
+}
+.stat-item { flex: 1; padding-right: 1.5rem; border-right: 1px solid rgba(245,240,232,0.1); }
+.stat-item:last-child { border-right: none; padding-right: 0; padding-left: 1.5rem; flex: 2; }
+.stat-item:first-child { padding-left: 0; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; font-weight: 600; color: var(--cream); line-height: 1; margin-bottom: 0.2rem;
+}
+.stat-label { font-size: 0.72rem; color: rgba(245,240,232,0.4); letter-spacing: 0.04em; }
+.stat-tag { font-size: 0.8rem; color: rgba(245,240,232,0.5); max-width: 180px; line-height: 1.4; }
+
+.home-right { padding-left: 4rem; display: flex; flex-direction: column; gap: 1rem; }
+.lang-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--r); padding: 1.5rem 1.75rem;
+  display: flex; justify-content: space-between; align-items: center;
+  text-decoration: none; color: inherit;
+  transition: all 0.25s;
+}
+.lang-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateX(6px);
+}
+.lang-card.coming-soon { opacity: 0.42; pointer-events: none; }
+.lang-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem; font-weight: 600; margin-bottom: 0.2rem;
+}
+.lang-card-name.cree   { color: var(--cree); }
+.lang-card-name.nakoda { color: var(--nakoda); }
+.lang-card-name.future { color: rgba(245,240,232,0.35); }
+.lang-card-desc { font-size: 0.8rem; color: rgba(245,240,232,0.5); margin-bottom: 0.6rem; }
+.lang-pill {
+  display: inline-block; font-size: 0.7rem;
+  padding: 0.2rem 0.6rem; border-radius: 999px; font-weight: 600; letter-spacing: 0.04em;
+}
+.lang-pill.cree   { background: rgba(82,183,136,0.15); color: var(--cree); }
+.lang-pill.nakoda { background: rgba(200,121,65,0.15);  color: var(--nakoda); }
+.lang-pill.future { background: rgba(255,255,255,0.06); color: rgba(245,240,232,0.35); }
+.lang-card-arrow { font-size: 1.2rem; color: rgba(245,240,232,0.2); transition: all 0.2s; }
+.lang-card:hover .lang-card-arrow { color: var(--cream); transform: translateX(4px); }
+
+@media (max-width: 768px) {
+  .home-nav { padding: 1rem 1.5rem; }
+  .home-nav-links { display: none; }
+  .home-body { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+  .home-right { padding-left: 0; }
 }
 </style>
 </head>
 <body>
- 
-<!-- ══════════ HOME ══════════ -->
-<div id="screen-home" class="screen active">
+
+<div class="home-page">
   <nav class="home-nav">
-    <div class="home-logo" onclick="goHome()">Still Speaking</div>
+    <a href="index.html" class="home-logo">Still Speaking</a>
     <ul class="home-nav-links">
-      <li><a onclick="goHome()">Languages</a></li>
-      <li><a onclick="showContact()">Contact</a></li>
+      <li><a href="index.html">Languages</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
- 
+
   <div class="home-body">
-    <div class="home-left">
-      <div class="home-eyebrow">Indigenous Language Learning</div>
+    <div>
+      <div class="home-eyebrow">Indigenous Language Learning · Northern Plains</div>
       <h1 class="home-title">
         <em>Languages that<br>
         <span class="gold">must be</span><br>
@@ -876,1152 +142,92 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line
       </h1>
       <div class="home-stats">
         <div class="stat-item">
-          <div class="stat-num" id="stat-langs">2</div>
+          <div class="stat-num">2</div>
           <div class="stat-label">Languages</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">16</div>
           <div class="stat-label">Chapters</div>
         </div>
-        <div class="stat-item" style="border-right:none;flex:2;">
+        <div class="stat-item">
           <div class="stat-tag">Cultural identity lives in language</div>
         </div>
       </div>
     </div>
- 
+
     <div class="home-right">
-      <div class="lang-card" onclick="showLanguage('cree')">
-        <div class="lang-card-left">
+      <a href="cree.html" class="lang-card">
+        <div>
           <div class="lang-card-name cree">Nêhiyawêwin</div>
           <div class="lang-card-desc">Plains Cree · Alberta &amp; Saskatchewan</div>
-          <span class="lang-pill cree">8 Chapters Available</span>
+          <span class="lang-pill cree">8 Chapters · Verified</span>
         </div>
         <div class="lang-card-arrow">→</div>
-      </div>
- 
-      <div class="lang-card" onclick="showLanguage('nakoda')">
-        <div class="lang-card-left">
+      </a>
+
+      <a href="nakoda.html" class="lang-card">
+        <div>
           <div class="lang-card-name nakoda">Nakoda / Îethka</div>
           <div class="lang-card-desc">Stoney Nakoda · Treaty 7 Territory, Alberta</div>
-          <span class="lang-pill nakoda">8 Chapters Available</span>
+          <span class="lang-pill nakoda">3 Verified · 5 In Review</span>
         </div>
         <div class="lang-card-arrow">→</div>
-      </div>
- 
-      <div class="lang-card coming-soon">
-        <div class="lang-card-left">
-          <div class="lang-card-name" style="color:rgba(245,240,232,0.35);">Michif <span class="cs-badge">Coming Soon</span></div>
+      </a>
+
+      <a class="lang-card coming-soon">
+        <div>
+          <div class="lang-card-name future">Michif</div>
           <div class="lang-card-desc">Métis · Manitoba &amp; Saskatchewan</div>
+          <span class="lang-pill future">Coming Soon</span>
         </div>
         <div class="lang-card-arrow">→</div>
-      </div>
- 
-      <div class="lang-card coming-soon">
-        <div class="lang-card-left">
-          <div class="lang-card-name" style="color:rgba(245,240,232,0.35);">Blackfoot / Siksiká <span class="cs-badge">Coming Soon</span></div>
+      </a>
+
+      <a class="lang-card coming-soon">
+        <div>
+          <div class="lang-card-name future">Blackfoot / Siksiká</div>
           <div class="lang-card-desc">Blackfoot Confederacy · Alberta &amp; Montana</div>
+          <span class="lang-pill future">Coming Soon</span>
         </div>
         <div class="lang-card-arrow">→</div>
-      </div>
+      </a>
     </div>
   </div>
- 
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
         <div class="footer-logo">Still Speaking</div>
-        <p class="footer-about">A structured, research-based curriculum for complete beginners — designed to honour and support Indigenous language revitalization across the Northern Plains and beyond.</p>
+        <p class="footer-about">A structured, research-based curriculum for complete beginners — designed to honour and support Indigenous language revitalization across the Northern Plains.</p>
         <div class="footer-disclaimer">
-          <strong>⚗ Experimental Project Notice:</strong> Still Speaking is an early-stage, experimental website exploring the use of AI development tools to produce widely distributable and accessible language learning material for underserved Indigenous language communities. Content accuracy is grounded in peer-reviewed and community-published sources; however, this platform is in active development and should not replace instruction by fluent speakers, elders, or certified language educators. We actively welcome corrections, contributions, and community feedback.
+          <strong>⚗ Experimental Project Notice:</strong> Still Speaking is an early-stage website exploring the use of AI development tools to produce widely distributable and accessible language learning material for underserved Indigenous language communities. Content is grounded in peer-reviewed and community-published sources. This platform is in active development and does not replace instruction by fluent speakers, elders, or certified language educators. Community feedback and corrections are actively welcomed.
         </div>
       </div>
       <div>
         <div class="footer-col-title">Navigate</div>
         <ul class="footer-links">
-          <li><a onclick="goHome()">All Languages</a></li>
-          <li><a onclick="showLanguage('cree')">Plains Cree</a></li>
-          <li><a onclick="showLanguage('nakoda')">Nakoda</a></li>
-          <li><a onclick="showContact()">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Resources</div>
-        <ul class="footer-links">
-          <li><a href="https://stoneynakoda.org" target="_blank">SEA Language App</a></li>
-          <li><a href="https://dictionary.stoneynakoda.org" target="_blank">Stoney Dictionary</a></li>
-          <li><a href="https://itwewina.altlab.app" target="_blank">itwêwina Cree Dict.</a></li>
-          <li><a href="https://www.uregina.ca/cree" target="_blank">U of Regina Cree</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>stillspeaking.netlify.app</span>
-      <span>Built with AI tools · Community verified content prioritized</span>
-    </div>
-  </footer>
-</div>
- 
-<!-- ══════════ LANGUAGE PAGE ══════════ -->
-<div id="screen-language" class="screen">
-  <nav class="app-nav">
-    <button class="back-btn" onclick="goHome()">← Back</button>
-    <span class="app-nav-sep">|</span>
-    <span class="app-nav-title" id="lang-nav-title"></span>
-  </nav>
- 
-  <div class="lang-header">
-    <div class="lang-header-inner" id="lang-header-inner">
-      <div style="position:relative;z-index:1;">
-        <div class="lang-header-tag" id="lh-tag"></div>
-        <div class="lang-header-name" id="lh-name"></div>
-        <div class="lang-header-sub" id="lh-sub"></div>
-        <div class="lang-header-meta" id="lh-meta"></div>
-      </div>
-      <div class="lang-header-stats">
-        <div><div class="lh-stat-num">8</div><div class="lh-stat-label">Chapters</div></div>
-        <div><div class="lh-stat-num">Begin.</div><div class="lh-stat-label">Level</div></div>
-      </div>
-    </div>
-  </div>
- 
-  <div class="chapters-section">
-    <div class="chapters-label">Select a chapter to begin</div>
-    <div class="chapters-grid" id="chapters-grid"></div>
-    <div class="limitation-box" id="lang-limitation"></div>
-    <p class="source-note" id="lang-sources"></p>
-  </div>
- 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-logo">Still Speaking</div>
-        <div class="footer-disclaimer">
-          <strong>⚗ Experimental Project Notice:</strong> Still Speaking is an early-stage, experimental website exploring the use of AI development tools to produce widely distributable and accessible language learning material for underserved Indigenous language communities. Content is grounded in community-published and peer-reviewed sources. This platform is in active development and should not replace instruction by fluent speakers or elders.
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Navigate</div>
-        <ul class="footer-links">
-          <li><a onclick="goHome()">All Languages</a></li>
-          <li><a onclick="showContact()">Contact Us</a></li>
+          <li><a href="index.html">All Languages</a></li>
+          <li><a href="cree.html">Plains Cree</a></li>
+          <li><a href="nakoda.html">Nakoda</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">External Resources</div>
         <ul class="footer-links">
+          <li><a href="https://dictionary.stoneynakoda.org" target="_blank">SEA Stoney Dictionary</a></li>
           <li><a href="https://stoneynakoda.org" target="_blank">SEA Language App</a></li>
           <li><a href="https://itwewina.altlab.app" target="_blank">itwêwina Cree Dict.</a></li>
+          <li><a href="https://www.uregina.ca/arts/cree-language" target="_blank">U of Regina Cree</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>stillspeaking.netlify.app</span>
-      <span>Built with AI tools · Community verified content prioritized</span>
+      <span>Built with AI tools · Community verification prioritized</span>
     </div>
   </footer>
 </div>
- 
-<!-- ══════════ CHAPTER PAGE ══════════ -->
-<div id="screen-chapter" class="screen">
-  <nav class="app-nav">
-    <button class="back-btn" id="chapter-back-btn" onclick="backToLanguage()">← Chapters</button>
-    <span class="app-nav-sep">|</span>
-    <span class="app-nav-title" id="chapter-nav-title"></span>
-  </nav>
-  <div class="chapter-page" id="chapter-content"></div>
- 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-logo">Still Speaking</div>
-        <div class="footer-disclaimer">
-          <strong>⚗ Experimental Project Notice:</strong> Still Speaking uses AI development tools to produce accessible language learning material for underserved communities. Content is grounded in peer-reviewed and community-published sources. This platform does not replace instruction by fluent speakers or elders.
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Navigate</div>
-        <ul class="footer-links">
-          <li><a onclick="goHome()">All Languages</a></li>
-          <li><a onclick="backToLanguage()">Back to Chapters</a></li>
-          <li><a onclick="showContact()">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom"><span>stillspeaking.netlify.app</span></div>
-  </footer>
-</div>
- 
-<!-- ══════════ CONTACT PAGE ══════════ -->
-<div id="screen-contact" class="screen">
-  <nav class="app-nav">
-    <button class="back-btn" onclick="goHome()">← Home</button>
-    <span class="app-nav-sep">|</span>
-    <span class="app-nav-title">Contact</span>
-  </nav>
- 
-  <div class="contact-wrap">
-    <h1 class="contact-title">Get in Touch</h1>
-    <p class="contact-sub">Have a correction, contribution, feedback, or question about Still Speaking? We want to hear from you — especially from community members, language educators, and speakers.</p>
- 
-    <div class="form-success" id="form-success">
-      ✓ Thank you for your message! We'll be in touch soon. Your feedback helps make this resource better for everyone.
-    </div>
- 
-    <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleFormSubmit(event)">
-      <input type="hidden" name="form-name" value="contact">
-      <p style="display:none;"><input name="bot-field"></p>
- 
-      <div class="form-group">
-        <label class="form-label" for="cf-name">Your Name</label>
-        <input class="form-input" type="text" id="cf-name" name="name" placeholder="Full name" required>
-      </div>
- 
-      <div class="form-group">
-        <label class="form-label" for="cf-email">Email Address</label>
-        <input class="form-input" type="email" id="cf-email" name="email" placeholder="your@email.com" required>
-      </div>
- 
-      <div class="form-group">
-        <label class="form-label" for="cf-type">Type of Message</label>
-        <select class="form-select form-input" id="cf-type" name="type">
-          <option value="feedback">General Feedback</option>
-          <option value="correction">Content Correction / Error Report</option>
-          <option value="contribution">I want to contribute content</option>
-          <option value="educator">I'm a language educator or speaker</option>
-          <option value="collaboration">Collaboration Inquiry</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
- 
-      <div class="form-group">
-        <label class="form-label" for="cf-language">Related Language (if applicable)</label>
-        <select class="form-select form-input" id="cf-language" name="language">
-          <option value="general">General / Both</option>
-          <option value="cree">Plains Cree (Nêhiyawêwin)</option>
-          <option value="nakoda">Nakoda (Stoney / Îethka)</option>
-          <option value="other">Other Language</option>
-        </select>
-      </div>
- 
-      <div class="form-group">
-        <label class="form-label" for="cf-msg">Message</label>
-        <textarea class="form-textarea" id="cf-msg" name="message" placeholder="Your message, correction, or question..." required></textarea>
-      </div>
- 
-      <button class="submit-btn" type="submit">Send Message</button>
-    </form>
- 
-    <p style="font-size:0.78rem;color:var(--muted);margin-top:1.5rem;line-height:1.6;">This form is powered by Netlify Forms. Messages are sent directly to the Still Speaking team. We particularly welcome corrections and contributions from fluent speakers and community educators.</p>
-  </div>
- 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-logo">Still Speaking</div>
-        <div class="footer-disclaimer">
-          <strong>⚗ Experimental Project Notice:</strong> Still Speaking is an early-stage, experimental website exploring AI development tools for Indigenous language revitalization. Content does not replace instruction by fluent speakers or elders.
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Navigate</div>
-        <ul class="footer-links">
-          <li><a onclick="goHome()">All Languages</a></li>
-          <li><a onclick="showLanguage('cree')">Plains Cree</a></li>
-          <li><a onclick="showLanguage('nakoda')">Nakoda</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom"><span>stillspeaking.netlify.app</span></div>
-  </footer>
-</div>
- 
-<script>
-/* ═══════════════════════════════════════
-   DATA
-═══════════════════════════════════════ */
-const LANGUAGES = {
-  cree: {
-    tag: 'Plains Cree · Y-dialect · Standard Roman Orthography',
-    name: 'Nêhiyawêwin',
-    nameClass: 'cree',
-    headerClass: 'cree-header',
-    sub: 'Plains Cree is the most widely spoken Indigenous language in Canada, with approximately 34,000 speakers across Saskatchewan, Alberta, Manitoba, and Montana.',
-    meta: 'Writing system: Standard Roman Orthography (SRO) · Y-dialect',
-    limitation: '⚠ Limitation note: Cree verb morphology is exceptionally complex. Chapters 5 and 8 introduce verb classes at a surface level only. Full conjugation tables (VAI, VII, VTA, VTI) require advanced study with fluent speakers or formal instruction. Audio pronunciation must be verified by a nêhiyawêwin speaker before publication.',
-    sources: 'Sources: Okimāsis (2004) Cree: Language of the Plains (U of Regina); Ratt (2016) mâci-nêhiyawêwin; Wolvengrey (2001) nêhiyawêwin: itwêwina; itwêwina online dictionary (altlab.app).',
-    chapters: [
-      { num:'Chapter 1', title:'Sounds & the Writing System', sub:'Standard Roman Orthography (SRO)', tag:'Foundational', assess:'Chapter Quiz',
-        lessons:['Short vowels: a, i, o', 'Long vowels: ā, ī, ō, ê (macron marks length)', 'Consonant inventory', 'SRO vs Syllabics — introduction', 'Stress and length patterns'] },
-      { num:'Chapter 2', title:'Greetings & Introductions', sub:'tânisi · Hello, how are you', tag:'Communication', assess:'Chapter Quiz',
-        lessons:['Core greetings: tânisi, namôya nânitaw', 'Introducing yourself: nitisiyihkâson', "Asking someone's name", 'Where are you from: nitohcîn', 'Dialogue practice'] },
-      { num:'Chapter 3', title:'Nouns & Animacy', sub:'The fundamental distinction in Cree', tag:'Grammar', assess:'Mid + Final Quiz',
-        lessons:['Animate (awa) vs inanimate (ôma)', 'Common animate nouns: atim, maskwa, nâpêw', 'Common inanimate nouns', 'Singular and plural forms', 'Diminutives introduction'] },
-      { num:'Chapter 4', title:'Numbers & Time', sub:'pêyak · nîso · nisto…', tag:'Vocabulary', assess:'Chapter Quiz',
-        lessons:['Numbers 1–20 (pêyak to nistanaw)', 'Days of the week', 'Seasons and months', 'Telling time: tânispî?'] },
-      { num:'Chapter 5', title:'Pronouns & Basic Verbs', sub:'niya · kiya · wiya', tag:'Grammar', assess:'Mid + Final Quiz',
-        lessons:['Personal pronouns singular & plural', 'Inclusive vs exclusive "we"', 'Animate intransitive verbs (VAI)', 'Inanimate intransitive verbs (VII)', 'Affirmative and negative statements'] },
-      { num:'Chapter 6', title:'Family & Kinship', sub:'nikâwiy · nôhkom · nimosôm', tag:'Vocabulary + Grammar', assess:'Chapter Quiz',
-        lessons:['Core kinship terms with possessive prefixes', 'Talking about family members', 'Possessive forms: ni- / ki- / o-', 'Short dialogue: Introducing your family'] },
-      { num:'Chapter 7', title:'Nature & the Land', sub:'askiy · sîpiy · miskanâw', tag:'Reading + Vocabulary', assess:'Cloze + Quiz',
-        lessons:['Land, water, sky vocabulary', 'Animals of the Plains (animate nouns)', 'Weather expressions using VII verbs', 'Short story: ê-kîsikâk (It is a good day)'] },
-      { num:'Chapter 8', title:'Simple Sentences & Questions', sub:'awîna · kikway · tânispi', tag:'Advanced Beginner', assess:'Translation + Writing',
-        lessons:['Question words: who, what, where, when, how', 'Yes/no questions with cî', 'Negation: namôya and êkâ', 'Building simple sentences', 'Translation exercises'] }
-    ]
-  },
-  nakoda: {
-    tag: 'Stoney Nakoda · Îethka dialect · SEA Orthography',
-    name: 'Nakoda / Îethka',
-    nameClass: 'nakoda',
-    headerClass: 'nakoda-header',
-    sub: 'Nakoda (Stoney / Îethka) is a Siouan language spoken by approximately 3,000 people in the Îyârhe Nakoda communities of Morley, Bighorn, and Eden Valley, Alberta — within Treaty 7 territory.',
-    meta: 'Writing system: SEA Standardized Orthography (2019–2021, developed with 50+ elders)',
-    limitation: '⚠ Limitation note: Nakoda has been historically under-documented. Complex verb morphology and sentence structures are not covered in these beginner chapters — they require the SEA Level 2/3 textbooks and instruction from a fluent Îethka speaker. All vocabulary here is cross-referenced against SEA/Language Conservancy materials only.',
-    sources: 'Sources: Stoney Education Authority / Language Conservancy (2021) Îethka Îam – Speak Stoney Level 1; Collette & McArthur (2017) Nakoda Language Lessons; SEA Stoney Mobile Dictionary app; Omniglot Stoney language reference.',
-    chapters: [
-      { num:'Chapter 1', title:'Sounds & the Alphabet', sub:'Îethka orthography — writing Nakoda', tag:'Foundational', assess:'Chapter Quiz',
-        lessons:['Short and long vowels', 'Nasalized vowels: ã, ĩ', 'Special characters: î, â, û, ô', 'Consonant inventory', 'Nakoda as a polysynthetic language'] },
-      { num:'Chapter 2', title:'Greetings & Daily Phrases', sub:'Hâu · Tókša · Pidámayaye', tag:'Communication', assess:'Chapter Quiz',
-        lessons:['Greetings: Hâu, Ecén', 'Thank you: Pidámayaye', 'Yes/No: Îyâ / Hiyá', 'Farewell: Tókša', 'Classroom phrases'] },
-      { num:'Chapter 3', title:'Numbers & Counting', sub:'Wãži · Núba · Yamní…', tag:'Vocabulary', assess:'Fill-in-the-blank',
-        lessons:['Numbers 1–10', 'Teen numbers: agé + base', 'Tens: wikcémna × multiplier', 'Counting practice exercises'] },
-      { num:'Chapter 4', title:'People & Family', sub:'Kinship terms in Nakoda', tag:'Vocabulary + Grammar', assess:'Chapter Quiz',
-        lessons:['Core kinship vocabulary', 'Gendered speech patterns', 'Human characteristics vocabulary', 'Short description sentences'] },
-      { num:'Chapter 5', title:'Animals & Nature', sub:'Fauna and landscape of Stoney territory', tag:'Reading + Vocabulary', assess:'Cloze + Quiz',
-        lessons:['Animals of the Rocky Mountains and Plains', 'Landscape and geography words', 'Weather and seasons', 'Short nature narrative with cloze exercise'] },
-      { num:'Chapter 6', title:'Food, Body & Daily Life', sub:'Thematically organized vocabulary', tag:'Vocabulary', assess:'Chapter Quiz',
-        lessons:['Food and drink vocabulary', 'Body parts', 'Clothing and getting dressed', 'Daily routine phrases'] },
-      { num:'Chapter 7', title:'Space, Time & Direction', sub:'Location · Quantities · When', tag:'Grammar + Vocabulary', assess:'Chapter Quiz',
-        lessons:['Directional words', 'Time expressions', 'Structural (function) words', 'Short sentence building'] },
-      { num:'Chapter 8', title:'Culture & Community', sub:'Dances · Ceremonies · Values', tag:'Advanced Beginner', assess:'Writing + Comprehension',
-        lessons:['Cultural vocabulary (SEA textbook categories)', 'Expressions of feeling and values', 'Guided writing prompt', 'Short story comprehension'] }
-    ]
-  }
-};
- 
-/* ═══════════════════════════════════════
-   CHAPTER CONTENT
-═══════════════════════════════════════ */
-function getChapterContent(lang, idx) {
-  if (lang === 'cree') return getCreeChapter(idx);
-  if (lang === 'nakoda') return getNakodaChapter(idx);
-  return '<p>Content coming soon.</p>';
-}
- 
-function vocabCard(native, english, pron, cls) {
-  return `<div class="vocab-card"><div class="vc-native ${cls}">${native}</div><div class="vc-english">${english}</div>${pron?`<div class="vc-pron">${pron}</div>`:''}  </div>`;
-}
-function vc(n,e,p,c){return vocabCard(n,e,p,c);}
- 
-function grammarNote(cls, label, html) {
-  return `<div class="grammar-note ${cls}"><div class="gn-label ${cls}">${label}</div>${html}</div>`;
-}
- 
-function dlLine(spkCls, speaker, native, english) {
-  return `<div class="dl"><div class="dl-spk ${spkCls}">${speaker}</div><div><div class="dl-native">${native}</div><div class="dl-english">${english}</div></div></div>`;
-}
- 
-function mcQuestion(id, question, opts, correctIdx) {
-  const btns = opts.map((o,i)=>`<li><button class="opt-btn" onclick="checkMC(this,${i===correctIdx},'qfb-${id}')">${o}</button></li>`).join('');
-  return `<div class="q-block"><div class="q-text">${question}</div><ul class="opts">${btns}</ul><div class="fb" id="qfb-${id}"></div></div>`;
-}
- 
-function fillQ(id, question, answer, hint='') {
-  return `<div class="q-block"><div class="q-text">${question}</div><input class="ans-input" type="text" id="ai-${id}" placeholder="${hint}"><button class="check-btn" onclick="checkFill('ai-${id}','${answer}','fb-${id}')">Check</button><div class="fb" id="fb-${id}"></div></div>`;
-}
- 
-function getCreeChapter(idx) {
-  const ch = [
- 
-    // ── Ch 0: Sounds & Writing ──
-    `<div class="ch-page-header cree"><div class="ch-page-label cree">Plains Cree · Chapter 1</div><h1 class="ch-page-title">Sounds &amp; the Writing System</h1><div class="ch-page-sub">Standard Roman Orthography (SRO)</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Identify and pronounce the three short vowels of Plains Cree</li>
-      <li>Recognize long vowels and understand that vowel length changes meaning</li>
-      <li>Read basic Cree words written in SRO</li>
-      <li>Understand what Syllabics are and why SRO is used here</li>
-    </ul></div>
-    <div class="lesson-section-title">The Vowels</div>
-    <div class="grammar-note cree"><div class="gn-label cree">Short Vowels</div><p>Plains Cree has three short vowels: <strong>a</strong> (like "but"), <strong>i</strong> (like "bit"), and <strong>o</strong> (like "bone" but shorter). They are pronounced quickly and lightly.</p></div>
-    <div class="grammar-note cree"><div class="gn-label cree">Long Vowels</div><p>Each short vowel has a long counterpart, written with a macron (bar above): <strong>ā</strong>, <strong>ī</strong>, <strong>ō</strong> — and one additional long vowel <strong>ê</strong>. Long vowels are held roughly twice as long as short ones. <em>This distinction is meaningful</em> — it changes the word's meaning entirely.</p><p>Example: <strong>nipa</strong> (he/she sleeps) vs <strong>nipā</strong> (he/she is dying). The length matters.</p></div>
-    <div class="lesson-section-title">Vowel Comparison</div>
-    <div class="vocab-grid">
-      ${vc('a','as in "cut"','short','cree')}${vc('ā','as in "father"','long','cree')}
-      ${vc('i','as in "bit"','short','cree')}${vc('ī','as in "feet"','long','cree')}
-      ${vc('o','as in "note"','short','cree')}${vc('ō','as in "road"','long','cree')}
-      ${vc('ê','as in "they"','long only','cree')}
-    </div>
-    <div class="lesson-section-title">Consonants</div>
-    <div class="grammar-note cree"><div class="gn-label cree">Key Consonants</div><p>Most consonants are similar to English. Notable ones: <strong>c</strong> is pronounced like "ch" in "church". <strong>ê</strong> at the end of a word has a slight "y" quality. The combination <strong>hk</strong> is a common ending (like in "tânisi" → "tânisihk"). The letter <strong>w</strong> can appear before vowels at the start of syllables.</p></div>
-    <div class="lesson-section-title">SRO vs Syllabics</div>
-    <div class="info-callout"><strong>Two writing systems:</strong> Plains Cree can be written in <strong>Standard Roman Orthography (SRO)</strong> — the alphabet used throughout this site — or in <strong>Syllabics</strong>, a script created by James Evans in 1840. Both are used by Cree communities today. Syllabics look like: ᓀᐦᐃᔭᐍᐏᐣ (nêhiyawêwin). SRO is used here because it is more accessible to beginners.</div>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 1 Assessment</div>
-      <div class="assess-intro">Test your knowledge of Cree sounds and orthography.</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('c1-1','Which letter in SRO is pronounced like "ch" in "church"?',['c','k','h','s'],0)}
-      ${mcQuestion('c1-2','How are long vowels marked in SRO?',['Double the vowel (aa, ii)','A macron / bar above (ā, ī, ō)','An accent mark (á, í)','They are not marked'],1)}
-      ${mcQuestion('c1-3','Cree has how many short vowels?',['Two (a, i)','Three (a, i, o)','Four (a, e, i, o)','Five'],1)}
-      <div class="assess-part-title">Part B — Fill in the Blank</div>
-      ${fillQ('c1-f1','The Cree script created by James Evans in 1840 is called _____.','Syllabics','Syllabics')}
-      ${fillQ('c1-f2','The additional long vowel in Cree (not simply a long short vowel) is _____.','ê','ê')}
-    </div>`,
- 
-    // ── Ch 1: Greetings ──
-    `<div class="ch-page-header cree"><div class="ch-page-label cree">Plains Cree · Chapter 2</div><h1 class="ch-page-title">Greetings &amp; Introductions</h1><div class="ch-page-sub">tânisi · how are you · nitisiyihkâson</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Greet someone in Plains Cree and respond to greetings</li>
-      <li>Introduce yourself using <em>nitisiyihkâson</em></li>
-      <li>Ask and answer where someone is from</li>
-      <li>Recognize common conversational particles: âhow, êkosi, pêyakwan</li>
-    </ul></div>
-    <div class="lesson-section-title">Core Greeting Vocabulary</div>
-    <div class="vocab-grid">
-      ${vc('tânisi','Hello / How are you?','taa-ni-si','cree')}
-      ${vc('namôya nânitaw','Fine / Not bad','na-moo-ya naa-ni-taw','cree')}
-      ${vc('pêyakwan','The same / Likewise','pay-ya-kwan','cree')}
-      ${vc('âhow','Okay / Alright / Yes','aa-how','cree')}
-      ${vc('êkosi','That\'s it / That\'s all','ay-ko-si','cree')}
-      ${vc('ay, takahki!','Great! / Really good!','ay ta-kah-ki','cree')}
-      ${vc('kiya mâka','And you? / How about you?','ki-ya maa-ka','cree')}
-      ${vc('êyiwêhk','I\'m getting by','ay-yi-wayhk','cree')}
-    </div>
-    ${grammarNote('cree','Pronunciation Note','<p>In everyday speech, <strong>tânisi</strong> is often contracted to <strong>tânsi</strong>. Long vowels (marked ā, ī, ō, ê) are held roughly twice as long as short vowels — this distinction changes meaning, so it matters.</p>')}
-    <div class="lesson-section-title">Introducing Yourself</div>
-    <div class="vocab-grid">
-      ${vc('nitisiyihkâson','My name is ___','ni-ti-si-yihk-aa-son','cree')}
-      ${vc('tânisi kitisiyihkâson?','What is your name?','taa-ni-si ki-ti-si-yihk','cree')}
-      ${vc('nitohcîn','I am from ___','ni-toh-cheen','cree')}
-      ${vc('tânitê ohci kiya?','Where are you from?','taa-ni-tay oh-chi','cree')}
-    </div>
-    <div class="lesson-section-title">Sample Dialogue 2.1</div>
-    <div class="dialogue-box">
-      <div class="dialogue-label">Meeting someone for the first time · Source: Okimāsis / Ratt</div>
-      ${dlLine('cree','A:','Tânisi.','Hello, how are you?')}
-      ${dlLine('cree','B:','Namôya nânitaw. Kiya mâka?','Fine. And you?')}
-      ${dlLine('cree','A:','Pêyakwan. Sarah nitisiyihkâson. Kiya mâka, tânisi kitisiyihkâson?','The same. My name is Sarah. And you, what is your name?')}
-      ${dlLine('cree','B:','James nitisiyihkâson. Tânitê ohci kiya?','My name is James. Where are you from?')}
-      ${dlLine('cree','A:','Maskwacîs ohci niya.','I am from Maskwacîs.')}
-      ${dlLine('cree','B:','Oskana kâ-asastêki ohci niya.','I am from Regina (the place where bones are piled).')}
-    </div>
-    ${grammarNote('cree','Grammar — Word Order','<p>Plains Cree has flexible word order, but notice how <em>nitisiyihkâson</em> (my name is ___) places the name <em>before</em> the verb — opposite of English. The verb itself carries so much grammatical information that a separate pronoun is often unnecessary.</p>')}
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 2 Assessment</div>
-      <div class="assess-intro">Complete all parts. Part C answers should be reviewed against the dialogue above.</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('c2-1','How do you say "Hello, how are you?" in Plains Cree?',['êkosi','tânisi','namôya','nitohcîn'],1)}
-      ${mcQuestion('c2-2','Which phrase means "My name is ___"?',['tânitê ohci kiya?','pêyakwan','nitisiyihkâson','kiya mâka'],2)}
-      ${mcQuestion('c2-3','What does "kiya mâka?" mean?',['I am fine','That\'s it','And you / How about you?','Where are you from?'],2)}
-      <div class="assess-part-title">Part B — Fill in the Blank</div>
-      ${fillQ('c2-f1','Complete: "___. My name is ___" (start with the Cree greeting)','tânisi','tânisi...')}
-      ${fillQ('c2-f2','How do you say "I am from ___" in Cree?','nitohcîn','nitohcîn')}
-      <div class="assess-part-title">Part C — Short Writing</div>
-      <div class="q-block"><div class="q-text">Write a 2–3 line introduction in Plains Cree: greeting, your name, and where you are from. (Review against the dialogue above.)</div><textarea class="ans-textarea" placeholder="tânisi. ___ nitisiyihkâson. ___ ohci niya."></textarea></div>
-    </div>`,
- 
-    // ── Ch 2: Nouns & Animacy ──
-    `<div class="ch-page-header cree"><div class="ch-page-label cree">Plains Cree · Chapter 3</div><h1 class="ch-page-title">Nouns &amp; Animacy</h1><div class="ch-page-sub">The most fundamental distinction in the Cree language</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Explain the animate / inanimate distinction in Plains Cree</li>
-      <li>Identify animate nouns using the demonstrative <em>awa</em></li>
-      <li>Identify inanimate nouns using the demonstrative <em>ôma</em></li>
-      <li>Form basic singular and plural noun forms</li>
-    </ul></div>
-    ${grammarNote('cree','The Most Important Grammar Rule in Cree','<p>Unlike English, Cree divides all nouns into two categories: <strong>animate</strong> and <strong>inanimate</strong>. This isn\'t simply about whether something is alive in a biological sense — many objects Europeans would consider inanimate are animate in Cree, reflecting a worldview in which spiritual life is present throughout nature.</p><p>The distinction affects nearly every part of the grammar: demonstratives, verb choice, plurals, and more. It must be memorized for each noun.</p>')}
-    <div class="lesson-section-title">Animate Nouns (awa)</div>
-    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1rem;">These nouns use the demonstrative <strong style="color:var(--cree-dark)">awa</strong> ("this/that animate"). Plural: add <strong>-ak</strong>.</p>
-    <div class="vocab-grid">
-      ${vc('nâpêw','man','naa-pay-w','cree')}${vc('iskwêw','woman','is-kway-w','cree')}
-      ${vc('atim','dog','a-tim','cree')}${vc('maskwa','bear','mas-kwa','cree')}
-      ${vc('pihêsiw','bird (generic)','pi-hay-siw','cree')}${vc('ayisiyiniw','person','a-yi-si-yi-niw','cree')}
-      ${vc('sîsîp','duck','see-seep','cree')}${vc('mîstahi-maskwa','grizzly bear','mee-sta-hi','cree')}
-    </div>
-    <div class="lesson-section-title">Inanimate Nouns (ôma)</div>
-    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1rem;">These nouns use the demonstrative <strong style="color:var(--cree-dark)">ôma</strong> ("this/that inanimate"). Plural: add <strong>-a</strong>.</p>
-    <div class="vocab-grid">
-      ${vc('mîciwin','food','mee-chi-win','cree')}${vc('maskisin','shoe/moccasin','mas-ki-sin','cree')}
-      ${vc('astotin','hat','as-to-tin','cree')}${vc('nipiy','water','ni-pi','cree')}
-      ${vc('sîpiy','river','see-pi','cree')}${vc('askiy','earth/land','as-ki','cree')}
-    </div>
-    ${grammarNote('cree','Surprising Animate Nouns','<p>The following nouns are animate in Cree even though English speakers might not expect it: <strong>asiniy</strong> (rock/stone), <strong>sîkos</strong> (weasel), <strong>oyôs</strong> (raspberry). Rocks, for example, are considered animate in Cree worldview — they have spirit. Do not try to predict animacy — it must be learned per word.</p>')}
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 3 Assessment</div>
-      <div class="assess-intro">Test your understanding of animacy.</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('c3-1','Which demonstrative is used with animate nouns?',['ôma','awa','ana','ôki'],1)}
-      ${mcQuestion('c3-2','What is the plural suffix for animate nouns?',['-a','-is','-ak','-wak (trick — both -ak and -wak are used)'],2)}
-      ${mcQuestion('c3-3','Which of the following is ANIMATE in Plains Cree?',['mîciwin (food)','sîpiy (river)','asiniy (stone/rock)','maskisin (moccasin)'],2)}
-      <div class="assess-part-title">Part B — Classify</div>
-      <div class="q-block"><div class="q-text">For each word, write "animate" or "inanimate": atim (dog), askiy (land), maskwa (bear), nipiy (water).</div><textarea class="ans-textarea" placeholder="atim = ___; askiy = ___; maskwa = ___; nipiy = ___"></textarea><p class="fb" style="margin-top:0.5rem;font-size:0.8rem;color:var(--muted);">Answer: atim = animate; askiy = inanimate; maskwa = animate; nipiy = inanimate.</p></div>
-    </div>`,
- 
-    // ── Ch 3: Numbers ──
-    `<div class="ch-page-header cree"><div class="ch-page-label cree">Plains Cree · Chapter 4</div><h1 class="ch-page-title">Numbers &amp; Time</h1><div class="ch-page-sub">pêyak · nîso · nisto · nêwo · niyânân…</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Count from 1 to 20 in Plains Cree</li>
-      <li>Recognize the pattern for teen numbers</li>
-      <li>Name the days of the week and four seasons</li>
-      <li>Use tânispî? to ask about time</li>
-    </ul></div>
-    <div class="lesson-section-title">Numbers 1–10</div>
-    <div class="vocab-grid">
-      ${vc('pêyak','1','pay-yak','cree')}${vc('nîso','2','nee-so','cree')}
-      ${vc('nisto','3','nis-to','cree')}${vc('nêwo','4','nay-wo','cree')}
-      ${vc('niyânân','5','ni-yaa-naan','cree')}${vc('nikotwâsik','6','ni-ko-twaa-sik','cree')}
-      ${vc('têpakohp','7','tay-pa-kohp','cree')}${vc('ayinânêw','8','a-yi-naa-nayw','cree')}
-      ${vc('kêkâ-mitâtaht','9','kay-kaa-mi-taa-taht','cree')}${vc('mitâtaht','10','mi-taa-taht','cree')}
-    </div>
-    ${grammarNote('cree','The Number 9','<p><strong>kêkâ-mitâtaht</strong> literally means "almost ten" — a beautiful window into how the language conceptualizes quantity. This reveals a subtractive counting logic, unique to Cree.</p>')}
-    <div class="lesson-section-title">Numbers 11–20</div>
-    <table class="number-table">
-      <thead><tr><th>#</th><th>Plains Cree (SRO)</th><th>Pattern</th></tr></thead>
-      <tbody>
-        <tr><td>11</td><td class="nt-nat cree">pêyakosâp</td><td class="nt-note">pêyak + osâp suffix</td></tr>
-        <tr><td>12</td><td class="nt-nat cree">nîsosâp</td><td class="nt-note">nîso + osâp suffix</td></tr>
-        <tr><td>13</td><td class="nt-nat cree">nistosâp</td><td class="nt-note">nisto + osâp suffix</td></tr>
-        <tr><td>14</td><td class="nt-nat cree">nêwosâp</td><td class="nt-note">nêwo + osâp suffix</td></tr>
-        <tr><td>15</td><td class="nt-nat cree">niyânânosâp</td><td class="nt-note">niyânân + osâp suffix</td></tr>
-        <tr><td>20</td><td class="nt-nat cree">nistanaw</td><td class="nt-note">distinct word</td></tr>
-        <tr><td>30</td><td class="nt-nat cree">nistomitanaw</td><td class="nt-note">nisto + mitanaw</td></tr>
-      </tbody>
-    </table>
-    <div class="lesson-section-title">Days of the Week</div>
-    <div class="vocab-grid">
-      ${vc('pêyakokîsikâw','Sunday','pey-ya-ko-kee-si-kow','cree')}
-      ${vc('nîsokîsikâw','Monday','nee-so-kee-si-kow','cree')}
-      ${vc('nistokîsikâw','Tuesday','nis-to-kee-si-kow','cree')}
-      ${vc('nêwokîsikâw','Wednesday','nay-wo-kee-si-kow','cree')}
-      ${vc('niyânânokîsikâw','Thursday','ni-yaa-naa-no-kee-si-kow','cree')}
-      ${vc('nikotwâsikîsikâw','Friday','ni-ko-twaa-si-kee-si-kow','cree')}
-      ${vc('têpakohpkîsikâw','Saturday','tay-pa-kohp-kee-si-kow','cree')}
-    </div>
-    ${grammarNote('cree','Days as Numbers','<p>The Cree days of the week are formed by combining the number with <strong>-kîsikâw</strong> (day). Sunday is "first day," Monday "second day," and so on — a completely transparent, logical system.</p>')}
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 4 Assessment — Numbers &amp; Time</div>
-      <div class="assess-intro">Complete all parts below.</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('c4-1','What does kêkâ-mitâtaht literally mean?',['Eight things','Almost ten','Six and three','Many things'],1)}
-      ${mcQuestion('c4-2','How are teen numbers (11–19) formed in Cree?',['Entirely new words','Base number + osâp suffix','Prefix + base number','Doubling the base'],1)}
-      <div class="assess-part-title">Part B — Fill in the Blank</div>
-      ${fillQ('c4-f1','The number 7 in Plains Cree is _____.','têpakohp','têpakohp')}
-      ${fillQ('c4-f2','Wednesday in Cree is "fourth day" — write it: _____.','nêwokîsikâw','nêwokîsikâw')}
-    </div>`,
- 
-    // ── Ch 4: Pronouns & Verbs ──
-    `<div class="ch-page-header cree"><div class="ch-page-label cree">Plains Cree · Chapter 5</div><h1 class="ch-page-title">Pronouns &amp; Basic Verbs</h1><div class="ch-page-sub">niya · kiya · wiya · nîyanân · kîyanân · kiyawâw · wiyawâw</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Use all Plains Cree personal pronouns correctly</li>
-      <li>Understand the inclusive vs exclusive "we" distinction</li>
-      <li>Recognize animate intransitive (VAI) verbs</li>
-      <li>Use basic weather expressions (VII verbs)</li>
-      <li>Form a simple negative sentence using namôya</li>
-    </ul></div>
-    <div class="lesson-section-title">Personal Pronouns</div>
-    <table class="number-table">
-      <thead><tr><th>Cree</th><th>English</th><th>Notes</th></tr></thead>
-      <tbody>
-        <tr><td class="nt-nat cree">niya</td><td>I / me</td><td class="nt-note"></td></tr>
-        <tr><td class="nt-nat cree">kiya</td><td>you (singular)</td><td class="nt-note"></td></tr>
-        <tr><td class="nt-nat cree">wiya</td><td>he / she / they (singular)</td><td class="nt-note">No gender distinction</td></tr>
-        <tr><td class="nt-nat cree">nîyanân</td><td>we (exclusive)</td><td class="nt-note">Does NOT include the person spoken to</td></tr>
-        <tr><td class="nt-nat cree">kîyanân</td><td>we (inclusive)</td><td class="nt-note">INCLUDES the person spoken to</td></tr>
-        <tr><td class="nt-nat cree">kiyawâw</td><td>you (plural)</td><td class="nt-note"></td></tr>
-        <tr><td class="nt-nat cree">wiyawâw</td><td>they (plural)</td><td class="nt-note"></td></tr>
-      </tbody>
-    </table>
-    ${grammarNote('cree','Inclusive vs Exclusive "We"','<p>This is one of the most important distinctions beginners must learn. <strong>kîyanân</strong> means "we — you and I and others" (inclusive of the listener). <strong>nîyanân</strong> means "we — but not you" (exclusive of the listener). This distinction does not exist in English but is grammatically required in Cree.</p>')}
-    <div class="lesson-section-title">Basic Verbs (VAI — Animate Intransitive)</div>
-    <div class="vocab-grid">
-      ${vc('nipâw','he/she sleeps','ni-paw','cree')}
-      ${vc('pimipahtâw','he/she runs','pi-mi-pah-taw','cree')}
-      ${vc('mîcisow','he/she eats','mee-chi-sow','cree')}
-      ${vc('pê-itohtêw','he/she comes','pay-i-toh-tay-w','cree')}
-      ${vc('nakatêw','he/she leaves','na-ka-tay-w','cree')}
-      ${vc('atoskêw','he/she works','a-tos-kay-w','cree')}
-    </div>
-    <div class="lesson-section-title">Weather Expressions (VII Verbs)</div>
-    <div class="vocab-grid">
-      ${vc('kîsikâw','It is a nice day','kee-si-kow','cree')}
-      ${vc('tipiskâw','It is night','ti-pis-kow','cree')}
-      ${vc('kimiwan','It is raining','ki-mi-wan','cree')}
-      ${vc('mispon','It is snowing','mis-pon','cree')}
-      ${vc('yôtin','It is windy','yoh-tin','cree')}
-    </div>
-    ${grammarNote('cree','Negation — namôya','<p>To make a statement negative in Plains Cree, use <strong>namôya</strong> before the verb: <em>namôya nipâw</em> = "he/she does not sleep." For prohibitions (don\'t!), use <strong>êkâ</strong>.</p>')}
-    <div class="limitation-note">⚠ Verb conjugation in Plains Cree is highly complex with four verb classes (VAI, VII, VTA, VTI), each with multiple conjugation paradigms. This chapter introduces the concept only. Full conjugation requires dedicated advanced study.</div>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 5 Assessment</div>
-      <div class="assess-intro">Pronouns and basic verbs.</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('c5-1','Which pronoun means "we — including you"?',['nîyanân','kîyanân','kiyawâw','wiyawâw'],1)}
-      ${mcQuestion('c5-2','What does "wiya" mean?',['I / me','You (singular)','He / She (no gender)','They (plural)'],2)}
-      ${mcQuestion('c5-3','Which word means "It is snowing"?',['kimiwan','yôtin','mispon','kîsikâw'],2)}
-      <div class="assess-part-title">Part B — Fill in</div>
-      ${fillQ('c5-f1','To make a statement negative, place ___ before the verb.','namôya','namôya')}
-    </div>`,
- 
-    // ── Ch 5: Family ──
-    `<div class="ch-page-header cree"><div class="ch-page-label cree">Plains Cree · Chapter 6</div><h1 class="ch-page-title">Family &amp; Kinship</h1><div class="ch-page-sub">nikâwiy · nôhkom · nimosôm · nistês</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Use core Cree kinship terms with the correct possessive prefix</li>
-      <li>Talk about family members using ni- (my), ki- (your), o- (his/her)</li>
-      <li>Describe a basic family unit in Cree</li>
-    </ul></div>
-    <div class="lesson-section-title">Kinship Terms (with ni- = my)</div>
-    <div class="vocab-grid">
-      ${vc('nôhtâwiy','my father','noh-taa-wiy','cree')}
-      ${vc('nikâwiy','my mother','ni-kaa-wiy','cree')}
-      ${vc('nôhkom','my grandmother','noh-kom','cree')}
-      ${vc('nimosôm','my grandfather','ni-mo-sohm','cree')}
-      ${vc('nistês','my older brother','nis-tays','cree')}
-      ${vc('nimis','my older sister','ni-mis','cree')}
-      ${vc('nisîmis','my younger sibling','ni-see-mis','cree')}
-      ${vc('nitôsim','my cousin','ni-toh-sim','cree')}
-    </div>
-    ${grammarNote('cree','Possessive Prefixes','<p>Cree kinship terms almost always appear with a possessive prefix. <strong>ni-</strong> (sometimes <strong>n-</strong>) = my; <strong>ki-</strong> = your; <strong>o-</strong> = his/her. So "your mother" is <em>kikâwiy</em>, and "her father" is <em>otôhtâwîwa</em> (note the suffix changes too in some forms). At the beginner level, focus on the ni- forms first.</p>')}
-    <div class="lesson-section-title">Sample Dialogue 6.1 — Introducing Family</div>
-    <div class="dialogue-box">
-      <div class="dialogue-label">Talking about your family</div>
-      ${dlLine('cree','A:','Awîna awa?','Who is this?')}
-      ${dlLine('cree','B:','Nôhkom awa. Mêkwâc ôta kî-ayâw.','This is my grandmother. She is staying here right now.')}
-      ${dlLine('cree','A:','Takahki! Kî-wîcihikowisiw.','That\'s great! You are lucky to have her.')}
-    </div>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 6 Assessment</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('c6-1','What does "nôhkom" mean?',['My father','My grandfather','My grandmother','My older sister'],2)}
-      ${mcQuestion('c6-2','The prefix ki- attached to a kinship term means:',['My','Your','His/Her','Their'],1)}
-      <div class="assess-part-title">Part B — Short Answer</div>
-      <div class="q-block"><div class="q-text">Using the ni- prefix pattern, how would you say "my older brother" and "my mother"?</div><textarea class="ans-textarea" placeholder="My older brother = ___; My mother = ___"></textarea><p class="fb" style="margin-top:0.4rem;font-size:0.78rem;color:var(--muted);">Answer: nistês; nikâwiy</p></div>
-    </div>`,
- 
-    // ── Ch 6: Nature ──
-    `<div class="ch-page-header cree"><div class="ch-page-label cree">Plains Cree · Chapter 7</div><h1 class="ch-page-title">Nature &amp; the Land</h1><div class="ch-page-sub">askiy · sîpiy · miskanâw</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Name key features of the Plains Cree landscape</li>
-      <li>Identify animals of the Northern Plains using animate vocabulary</li>
-      <li>Use VII weather verbs in context</li>
-      <li>Read and complete a short Cree nature passage (cloze exercise)</li>
-    </ul></div>
-    <div class="lesson-section-title">Land &amp; Water Vocabulary</div>
-    <div class="vocab-grid">
-      ${vc('askiy','earth / land / the world','as-ki','cree')}
-      ${vc('sîpiy','river','see-pi','cree')}
-      ${vc('sâkahikan','lake','saa-ka-hi-kan','cree')}
-      ${vc('wâskahikan','house / building','waas-ka-hi-kan','cree')}
-      ${vc('mistahi','a lot / very much','mis-ta-hi','cree')}
-      ${vc('nîpiy','leaf','nee-pi','cree')}
-      ${vc('mîtos','poplar tree','mee-tos','cree')}
-      ${vc('wâpanaw','the east / morning','waa-pa-naw','cree')}
-    </div>
-    <div class="lesson-section-title">Animals (Animate Nouns)</div>
-    <div class="vocab-grid">
-      ${vc('maskwa','bear','mas-kwa','cree')}
-      ${vc('môswa','moose','mohs-wa','cree')}
-      ${vc('awâsis','child (also: young animal)','a-waa-sis','cree')}
-      ${vc('mahihkan','wolf','ma-hih-kan','cree')}
-      ${vc('kihêw','eagle','ki-hay-w','cree')}
-      ${vc('mîstatim','horse','mee-sta-tim','cree')}
-    </div>
-    <div class="lesson-section-title">Cloze Exercise — Complete the Story</div>
-    <div class="dialogue-box">
-      <div class="dialogue-label">Fill in the blanks using: kîsikâw · maskwa · sîpiy · mîstatim · mispon</div>
-      <p style="font-size:0.9rem;line-height:1.8;">ê-wâpahk, _______ [it is a nice day]. nîya êtikwê ka-nakatân ôta. pê-itohtêw awa _______  [horse] ohci ôta _______  [river]. namôya _______ [it is not snowing] — kîsikâw. mistahi takahki!</p>
-      <p style="font-size:0.78rem;color:var(--muted);margin-top:0.75rem;font-style:italic;">Translation: In the morning, it is a nice day. I will probably leave here. A horse comes from the river. It is not snowing — it is a nice day. Very beautiful!</p>
-    </div>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 7 Assessment</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('c7-1','What does "askiy" mean?',['River','Tree','Earth / land / the world','Lake'],2)}
-      ${mcQuestion('c7-2','Which word means eagle in Plains Cree?',['môswa (moose)','kihêw (eagle)','sîpiy (river)','mîtos (poplar tree)'],1)}
-      <div class="assess-part-title">Part B — Translation</div>
-      <div class="q-block"><div class="q-text">Translate into English: "mispon. pê-itohtêw awa maskwa ohci sâkahikan."</div><textarea class="ans-textarea" placeholder="It is snowing. A bear comes from the lake."></textarea></div>
-    </div>`,
- 
-    // ── Ch 7: Sentences & Questions ──
-    `<div class="ch-page-header cree"><div class="ch-page-label cree">Plains Cree · Chapter 8</div><h1 class="ch-page-title">Simple Sentences &amp; Questions</h1><div class="ch-page-sub">awîna · kikway · tânispi · cî</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Use Cree question words to form information questions</li>
-      <li>Form yes/no questions using the particle <em>cî</em></li>
-      <li>Use negation: namôya and êkâ</li>
-      <li>Construct simple sentences combining learned vocabulary</li>
-      <li>Translate short sentences from English to Cree</li>
-    </ul></div>
-    <div class="lesson-section-title">Question Words</div>
-    <div class="vocab-grid">
-      ${vc('awîna','who?','a-wee-na','cree')}
-      ${vc('kikway','what?','ki-kway','cree')}
-      ${vc('tânite','where?','taa-ni-tay','cree')}
-      ${vc('tânispî','when?','taa-nis-pee','cree')}
-      ${vc('tânisi','how? / what like?','taa-ni-si','cree')}
-      ${vc('tânêhki','why?','taa-nayk-ki','cree')}
-    </div>
-    ${grammarNote('cree','Yes/No Questions with cî','<p>To form a yes/no question in Plains Cree, simply add the particle <strong>cî</strong> to a statement. It can appear at the beginning or after the verb: <em>nipâw cî?</em> = "Is he/she sleeping?" This is much simpler than the English question inversion structure.</p>')}
-    <div class="lesson-section-title">Negation</div>
-    <div class="vocab-grid">
-      ${vc('namôya','no / not (statements)','na-moo-ya','cree')}
-      ${vc('êkâ','do not (prohibitions)','ay-kaa','cree')}
-      ${vc('namôya nânitaw','fine / no problem','na-moo-ya naa-ni-taw','cree')}
-    </div>
-    <div class="lesson-section-title">Sample Sentence Pairs</div>
-    <div class="dialogue-box">
-      <div class="dialogue-label">Positive and Negative Sentences</div>
-      ${dlLine('cree','✓','Nipâw awa nâpêw.','This man is sleeping.')}
-      ${dlLine('cree','✗','Namôya nipâw awa nâpêw.','This man is not sleeping.')}
-      ${dlLine('cree','?','Nipâw cî awa nâpêw?','Is this man sleeping?')}
-      ${dlLine('cree','✓','Tânite aya kiya?','Where do you live?')}
-      ${dlLine('cree','✓','Kikway ôma?','What is this? (inanimate)')}
-      ${dlLine('cree','✓','Awîna awa?','Who is this? (animate)')}
-    </div>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 8 Assessment — Sentences &amp; Questions</div>
-      <div class="assess-intro">This is the final chapter assessment for Plains Cree. It combines skills from all previous chapters.</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('c8-1','Which particle turns a statement into a yes/no question?',['namôya','êkâ','cî','âhow'],2)}
-      ${mcQuestion('c8-2','What does "tânêhki" mean?',['Where?','When?','Who?','Why?'],3)}
-      ${mcQuestion('c8-3','Which question word would you use to ask about an animate being?',['kikway','awîna','ôma','tânispi'],1)}
-      <div class="assess-part-title">Part B — Translation</div>
-      ${fillQ('c8-f1','Translate to Cree: "It is snowing."','mispon','mispon')}
-      <div class="q-block"><div class="q-text">Translate to Cree: "Is this woman working?" (iskwêw = woman, atoskêw = she works)</div><textarea class="ans-textarea" placeholder="Atoskêw cî awa iskwêw?"></textarea></div>
-      <div class="assess-part-title">Part C — Reflection</div>
-      <div class="q-block"><div class="q-text">In your own words: name two features of Plains Cree grammar that are very different from English. Use examples from the chapters.</div><textarea class="ans-textarea" style="min-height:100px;" placeholder="1. Animacy distinction... 2. Inclusive/exclusive we..."></textarea></div>
-    </div>`
-  ];
-  return ch[idx] || '<p style="color:var(--muted);">Full lesson content coming soon.</p>';
-}
- 
-function getNakodaChapter(idx) {
-  const ch = [
- 
-    // ── Nakoda Ch 0: Sounds ──
-    `<div class="ch-page-header nakoda"><div class="ch-page-label nakoda">Nakoda · Chapter 1</div><h1 class="ch-page-title">Sounds &amp; the Alphabet</h1><div class="ch-page-sub">Îethka orthography — developed with Stoney elders 2019–2021</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Recognize the vowels and special characters used in Nakoda writing</li>
-      <li>Understand what nasalized vowels are</li>
-      <li>Know what a polysynthetic language is</li>
-      <li>Understand why the SEA standardized orthography was developed</li>
-    </ul></div>
-    <div class="info-callout"><strong>Source note:</strong> The orthography used here is the standardized Stoney Nakoda writing system at <strong>dictionary.stoneynakoda.org</strong>, developed by the Stoney Education Authority and The Language Conservancy (2019–2021), in collaboration with 50+ Îyârhe Nakoda elders from the Bearspaw, Chiniki, and Wesley First Nations. The SEA uses <strong>digraphs</strong> (ch, th, rh, sh) rather than special characters like č or š — this is the correct and community-approved standard.</div>
-    <div class="lesson-section-title">Vowels</div>
-    <div class="vocab-grid">
-      ${vc('a','as in "father"','short','nakoda')}${vc('â','longer "a"','long','nakoda')}
-      ${vc('i','as in "bit"','short','nakoda')}${vc('î','as in "feet"','long','nakoda')}
-      ${vc('u','as in "put"','short','nakoda')}${vc('û','as in "moon"','long','nakoda')}
-      ${vc('o','as in "note"','short','nakoda')}${vc('ô','as in "road"','long','nakoda')}
-    </div>
-    ${grammarNote('nakoda','Nasalized Vowels','<p>Nakoda has nasalized vowels, meaning air flows through the nose during pronunciation. These are written with a tilde: <strong>ã</strong>, <strong>ĩ</strong>, <strong>ũ</strong>, <strong>õ</strong>. They sound somewhat like French nasal vowels. This distinction is phonemically significant — it can change word meaning.</p>')}
-    <div class="lesson-section-title">What is a Polysynthetic Language?</div>
-    ${grammarNote('nakoda','Polysynthetic Structure','<p>Nakoda is a polysynthetic language, meaning a single word can express what takes an entire English sentence. Prefixes, suffixes, and infixes are added to a root to convey subject, object, tense, aspect, direction, and more — all within one word. This is a fundamentally different structure from English and requires a different learning approach.</p><p>Example: a single Nakoda verb form can mean "she is walking toward the river with her children in the morning." Beginners should focus on roots and simple forms, not full conjugated sentences.</p>')}
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 1 Assessment</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n1-1','Which of the following is part of the SEA Stoney Nakoda orthography?',['č š ž (Czech-style letters)','ch th rh (digraphs)','c̈ ṧ (dotted letters)','q x exclusively'],1)}
-      ${mcQuestion('n1-2','A polysynthetic language is one where:',['There are no vowels','One word can express a whole sentence/idea','All words are borrowed from English','Grammar is very simple'],1)}
-      ${mcQuestion('n1-3','Who developed the standardized Nakoda orthography?',['University of Calgary','Federal government','Stoney Education Authority with 50+ elders','A single linguist in the 1800s'],2)}
-    </div>`,
- 
-    // ── Nakoda Ch 1: Greetings ──
-    `<div class="ch-page-header nakoda"><div class="ch-page-label nakoda">Nakoda · Chapter 2</div><h1 class="ch-page-title">Greetings &amp; Daily Phrases</h1><div class="ch-page-sub">Hâu · Tókša · Pidámayaye</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Greet someone in Nakoda and respond to greetings</li>
-      <li>Say thank you, yes, and no in Nakoda</li>
-      <li>Use basic farewell expressions</li>
-      <li>Use a few classroom phrases</li>
-    </ul></div>
-    <div class="info-callout"><strong>Source note:</strong> All phrases here are drawn from the Stoney Education Authority's <em>Îethka Îam – Speak Stoney Level 1</em> and the SEA/Language Conservancy vocabulary app. For authentic pronunciation, use the free Stoney Nakoda Media Player app (iOS/Android).</div>
-    <div class="lesson-section-title">Core Greetings</div>
-    <div class="vocab-grid">
-      ${vc('Hâu','Hello (general)','haw','nakoda')}
-      ${vc('Ecén','Good / Okay','e-chen','nakoda')}
-      ${vc('Pidámayaye','Thank you','pi-daa-ma-ya-ye','nakoda')}
-      ${vc('Îyâ','Yes','ee-yaa','nakoda')}
-      ${vc('Hiyá','No','hi-yaa','nakoda')}
-      ${vc('Tókša','Goodbye / See you later','tok-sha','nakoda')}
-    </div>
-    ${grammarNote('nakoda','About Nakoda Greetings','<p>Nakoda does not have the same range of time-of-day specific greetings as some other languages. <strong>Hâu</strong> is the general greeting used widely across community contexts. The word <strong>Ecén</strong> can serve both as "good/okay" and as a response to "how are you?" meaning "I\'m good."</p>')}
-    <div class="limitation-note">⚠ A wider range of formal and contextual greetings exists in the Îethka Îam textbooks. The vocabulary listed here represents the most cross-verified, widely documented phrases only.</div>
-    <div class="lesson-section-title">Sample Dialogue 2.1</div>
-    <div class="dialogue-box">
-      <div class="dialogue-label">A simple greeting exchange</div>
-      ${dlLine('nakoda','A:','Hâu.','Hello.')}
-      ${dlLine('nakoda','B:','Hâu. Ecén?','Hello. Are you good?')}
-      ${dlLine('nakoda','A:','Îyâ, ecén. Pidámayaye.','Yes, I\'m good. Thank you.')}
-      ${dlLine('nakoda','B:','Tókša.','See you later.')}
-      ${dlLine('nakoda','A:','Tókša.','See you later.')}
-    </div>
-    ${grammarNote('nakoda','About the Language','<p>Nakoda (Stoney / Îethka) is a Siouan language — related to Lakota and Dakota, but mutually unintelligible. <em>Nakoda</em> means "the friendly ones" or "allies." It is spoken by the Îyârhe Nakoda (Stoney) people in Morley, Bighorn, and Eden Valley, Alberta, within Treaty 7 territory.</p>')}
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 2 Assessment</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n2-1','How do you say "Thank you" in Nakoda?',['Tókša','Hiyá','Pidámayaye','Îyâ'],2)}
-      ${mcQuestion('n2-2','What does "Tókša" mean?',['Hello','Yes','Good','Goodbye / See you later'],3)}
-      ${mcQuestion('n2-3','What does "Hiyá" mean?',['Hello','No','Thank you','Good'],1)}
-      <div class="assess-part-title">Part B — Fill in the Blank</div>
-      ${fillQ('n2-f1','Complete the greeting: "Hâu. ___?" (Are you good?)','Ecén?','Ecén?')}
-      ${fillQ('n2-f2','How do you say "Yes" in Nakoda?','Îyâ','Îyâ')}
-      <div class="assess-part-title">Part C — Writing</div>
-      <div class="q-block"><div class="q-text">Write out the full greeting dialogue from this lesson from memory. (3–4 lines)</div><textarea class="ans-textarea" placeholder="Hâu. Hâu. Ecén? ..."></textarea></div>
-    </div>`,
- 
-    // ── Nakoda Ch 2: Numbers ──
-    `<div class="ch-page-header nakoda"><div class="ch-page-label nakoda">Nakoda · Chapter 3</div><h1 class="ch-page-title">Numbers &amp; Counting</h1><div class="ch-page-sub">Wãži · Núba · Yamní…</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Count from 1 to 10 in Nakoda</li>
-      <li>Form teen numbers using the agé prefix pattern</li>
-      <li>Form tens using the wikcémna pattern</li>
-    </ul></div>
-    <div class="info-callout"><strong>Source note:</strong> Numbers cross-referenced with Omniglot Stoney language reference and Stoney Education Authority materials. For fuller context on number use in sentences, consult the SEA Level 1 textbook.</div>
-    <div class="lesson-section-title">Numbers 1–10</div>
-    <div class="vocab-grid">
-      ${vc('Wãži','1','waa-zhi','nakoda')}${vc('Núba','2','noo-ba','nakoda')}
-      ${vc('Yamní','3','yam-ni','nakoda')}${vc('Tóba','4','toh-ba','nakoda')}
-      ${vc('Záptã','5','zap-taan','nakoda')}${vc('Shákpe','6','shak-pe','nakoda')}
-      ${vc('Shakówi','7','sha-ko-wi','nakoda')}${vc('Shakónoba','8','sha-ko-no-ba','nakoda')}
-      ${vc('Napčíyuga','9','nap-chi-yu-ga','nakoda')}${vc('Wikcémna','10','wik-kem-na','nakoda')}
-    </div>
-    ${grammarNote('nakoda','Teen Numbers — agé Pattern','<p>Teen numbers in Nakoda are formed by placing <strong>agé</strong> before the unit number: <em>agé wãži</em> = 11, <em>agé núba</em> = 12, <em>agé yamní</em> = 13, and so on through 19.</p>')}
-    <div class="lesson-section-title">Tens</div>
-    <table class="number-table">
-      <thead><tr><th>Number</th><th>Nakoda</th><th>Pattern</th></tr></thead>
-      <tbody>
-        <tr><td>10</td><td class="nt-nat nakoda">Wikcémna</td><td class="nt-note">base word</td></tr>
-        <tr><td>20</td><td class="nt-nat nakoda">Wikcémna núba</td><td class="nt-note">wikcémna × 2</td></tr>
-        <tr><td>30</td><td class="nt-nat nakoda">Wikcémna yamní</td><td class="nt-note">wikcémna × 3</td></tr>
-        <tr><td>40</td><td class="nt-nat nakoda">Wikcémna tóba</td><td class="nt-note">wikcémna × 4</td></tr>
-        <tr><td>50</td><td class="nt-nat nakoda">Wikcémna záptã</td><td class="nt-note">wikcémna × 5</td></tr>
-        <tr><td>100</td><td class="nt-nat nakoda">Opáwinge</td><td class="nt-note">distinct word</td></tr>
-      </tbody>
-    </table>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 3 Assessment</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n3-1','What is the Nakoda word for 5?',['Tóba','Shákpe','Záptã','Yamní'],2)}
-      ${mcQuestion('n3-2','How are teen numbers formed in Nakoda?',['Unit + wikcémna','agé + unit number','Unit + šak','opáwinge + unit'],1)}
-      <div class="assess-part-title">Part B — Fill in the Blank</div>
-      ${fillQ('n3-f1','The Nakoda word for 10 is _____.','Wikcémna','Wikcémna')}
-      ${fillQ('n3-f2','The number 12 in Nakoda is agé _____.','núba','núba')}
-    </div>`,
- 
-    // ── Nakoda Ch 3: Family ──
-    `<div class="ch-page-header nakoda"><div class="ch-page-label nakoda">Nakoda · Chapter 4</div><h1 class="ch-page-title">People &amp; Family</h1><div class="ch-page-sub">Kinship terms in Nakoda</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Use core Nakoda kinship vocabulary</li>
-      <li>Understand that Nakoda has gendered speech patterns for some terms</li>
-      <li>Describe people using basic characteristic vocabulary</li>
-    </ul></div>
-    <div class="limitation-note">⚠ <strong>CONTENT NOTICE — Chapters 4–8 (Nakoda):</strong> The SEA online dictionary (dictionary.stoneynakoda.org) requires a live search interface that cannot be programmatically accessed for bulk verification. The vocabulary in Chapters 4–8 is drawn from Collette &amp; McArthur (2017) <em>Nakoda Language Lessons</em> and cross-referenced where possible, but <strong>has not been individually confirmed against the SEA dictionary</strong>. These chapters should be treated as a draft curriculum framework only. All vocabulary must be verified by a fluent Îyârhe Nakoda speaker or against the SEA Stoney Mobile Dictionary app before teaching. Chapters 1–3 (sounds, greetings, numbers) are the only chapters considered verified.</div>
-    <div class="limitation-note">⚠ Kinship terminology in Nakoda is complex and context-dependent. The terms below represent beginner-level vocabulary from Collette &amp; McArthur (2017). Full kinship systems are covered in SEA Level 2.</div>
-    <div class="lesson-section-title">Core Kinship Terms</div>
-    <div class="vocab-grid">
-      ${vc('iná','mother','ee-naa','nakoda')}
-      ${vc('até','father','a-tay','nakoda')}
-      ${vc('unkí','grandmother','un-ki','nakoda')}
-      ${vc('unkáš','grandfather','un-kaash','nakoda')}
-      ${vc('chiyé','older brother (said by male)','chi-yay','nakoda')}
-      ${vc('chuwé','older sister (said by female)','chu-way','nakoda')}
-      ${vc('shijé','older brother (said by female)','shi-zhay','nakoda')}
-      ${vc('miyé','younger sibling','mi-yay','nakoda')}
-    </div>
-    ${grammarNote('nakoda','Gendered Speech in Kinship','<p>Nakoda has some terms where the word used depends on the speaker\'s gender — not the person being described. For example, the word for "older brother" differs depending on whether a man or woman is speaking. This is a feature of Siouan languages generally and requires attention when learning kinship terms.</p>')}
-    <div class="lesson-section-title">Describing People</div>
-    <div class="vocab-grid">
-      ${vc('wicháshta','man','wi-chash-ta','nakoda')}
-      ${vc('wiyã','woman','wi-yaan','nakoda')}
-      ${vc('hokšína','boy','hok-shi-na','nakoda')}
-      ${vc('wichíncala','girl','wi-chin-cha-la','nakoda')}
-      ${vc('chishkéya','old (person)','chi-skay-ya','nakoda')}
-      ${vc('tečhíla','young','te-chi-la','nakoda')}
-    </div>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 4 Assessment</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n4-1','What does "unkí" mean?',['Grandfather','Mother','Grandmother','Older sister'],2)}
-      ${mcQuestion('n4-2','The word for "older brother" in Nakoda:',['Is the same regardless of who is speaking','Differs depending on the speaker\'s gender','Is always chiyé','Does not exist'],1)}
-      <div class="assess-part-title">Part B — Match</div>
-      <div class="q-block"><div class="q-text">Match the Nakoda word to its English meaning: wicháshta / wiyã / hokšína / wichíncala</div><textarea class="ans-textarea" placeholder="wicháshta = man; wiyã = woman; hokšína = boy; wichíncala = girl"></textarea></div>
-    </div>`,
- 
-    // ── Nakoda Ch 4: Animals & Nature ──
-    `<div class="ch-page-header nakoda"><div class="ch-page-label nakoda">Nakoda · Chapter 5</div><h1 class="ch-page-title">Animals &amp; Nature</h1><div class="ch-page-sub">Fauna and landscape of Stoney territory</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Name animals of the Rocky Mountain and Plains regions in Nakoda</li>
-      <li>Use landscape and geography vocabulary</li>
-      <li>Complete a short cloze exercise in Nakoda</li>
-    </ul></div>
-    <div class="lesson-section-title">Animals</div>
-    <div class="vocab-grid">
-      ${vc('mnohó','bear','mno-hoh','nakoda')}
-      ${vc('táku','moose','taa-ku','nakoda')}
-      ${vc('shúga','dog','shoo-ga','nakoda')}
-      ${vc('shúgatãka','horse','shoo-ga-taan-ka','nakoda')}
-      ${vc('zitká','bird','zit-kaa','nakoda')}
-      ${vc('hoksína','calf / young animal','hok-si-na','nakoda')}
-    </div>
-    <div class="limitation-note">⚠ Animal vocabulary in Nakoda beyond the most common terms has limited publicly accessible, verified sources. The words above are cross-referenced against SEA/Language Conservancy materials. For a full vocabulary, consult the Stoney Mobile Dictionary app.</div>
-    <div class="lesson-section-title">Landscape &amp; Nature Words</div>
-    <div class="vocab-grid">
-      ${vc('mní','water','mnee','nakoda')}
-      ${vc('mnišóše','river','mni-shoh-shay','nakoda')}
-      ${vc('pahá','hill','pa-haa','nakoda')}
-      ${vc('makóče','land / territory','ma-ko-chay','nakoda')}
-      ${vc('makhá','earth / soil','mak-haa','nakoda')}
-      ${vc('ánpetu','day','aan-pe-tu','nakoda')}
-    </div>
-    <div class="lesson-section-title">Cloze Exercise — Nature Passage</div>
-    <div class="dialogue-box">
-      <div class="dialogue-label">Fill in the blanks using: mnohó · mní · makóče · ánpetu · shúgatãka</div>
-      <p style="font-size:0.9rem;line-height:1.8;">Ecén _______ [day]. Wičhášta _______ [horse] kichíya. _______ [Bear] ohci _______ [water] pé. Ecén _______ [land/territory] — tečhíla!</p>
-      <p style="font-size:0.78rem;color:var(--muted);margin-top:0.75rem;font-style:italic;">Translation: It is a good day. The man comes with a horse. A bear comes from the water. Good land — it is beautiful/young!</p>
-    </div>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 5 Assessment</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n5-1','What does "mnohó" mean?',['Dog','Horse','Bear','Bird'],2)}
-      ${mcQuestion('n5-2','The Nakoda word for water is:',['pahá','makhá','mní','makóče'],2)}
-      <div class="assess-part-title">Part B — Translation</div>
-      <div class="q-block"><div class="q-text">Translate to English: "Ecén ánpetu. Zitká pé ohci pahá."</div><textarea class="ans-textarea" placeholder="It is a good day. A bird comes from the hill."></textarea></div>
-    </div>`,
- 
-    // ── Nakoda Ch 5: Daily Life ──
-    `<div class="ch-page-header nakoda"><div class="ch-page-label nakoda">Nakoda · Chapter 6</div><h1 class="ch-page-title">Food, Body &amp; Daily Life</h1><div class="ch-page-sub">Thematically organized vocabulary for everyday situations</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Name common foods and drinks in Nakoda</li>
-      <li>Identify basic body parts</li>
-      <li>Use simple daily routine vocabulary</li>
-    </ul></div>
-    <div class="lesson-section-title">Food &amp; Drink</div>
-    <div class="vocab-grid">
-      ${vc('wóyute','food','woh-yu-te','nakoda')}
-      ${vc('mní','water (also: drink)','mnee','nakoda')}
-      ${vc('wóžapi','berry / fruit','woh-zha-pi','nakoda')}
-      ${vc('thalo','meat','thah-loh','nakoda')}
-      ${vc('ağúyapi','bread','a-gu-ya-pi','nakoda')}
-    </div>
-    <div class="limitation-note">⚠ Food vocabulary has limited verified public sources beyond the SEA Vocab Builder app categories. The terms above are drawn from Siouan language family documentation and cross-checked where possible with SEA materials.</div>
-    <div class="lesson-section-title">Body Parts</div>
-    <div class="vocab-grid">
-      ${vc('napé','hand','na-pay','nakoda')}
-      ${vc('sí','foot','see','nakoda')}
-      ${vc('paá','head','paa-a','nakoda')}
-      ${vc('čhãté','heart','chaan-tay','nakoda')}
-      ${vc('ištá','eye','ish-taa','nakoda')}
-      ${vc('nohge','ear','noh-ge','nakoda')}
-    </div>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 6 Assessment</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n6-1','What does "thalo" mean?',['Bread','Meat','Berry','Water'],1)}
-      ${mcQuestion('n6-2','The word "ištá" means:',['Ear','Hand','Eye','Heart'],2)}
-      <div class="assess-part-title">Part B — Fill in the Blank</div>
-      ${fillQ('n6-f1','The Nakoda word for "head" is _____.','paá','paá')}
-      ${fillQ('n6-f2','The Nakoda word for "food" is _____.','wóyute','wóyute')}
-    </div>`,
- 
-    // ── Nakoda Ch 6: Space & Time ──
-    `<div class="ch-page-header nakoda"><div class="ch-page-label nakoda">Nakoda · Chapter 7</div><h1 class="ch-page-title">Space, Time &amp; Direction</h1><div class="ch-page-sub">Location · Time expressions · Structural words</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Use directional and locational words in Nakoda</li>
-      <li>Express basic time: today, yesterday, tomorrow, morning, evening</li>
-      <li>Use structural words to build short sentences</li>
-    </ul></div>
-    <div class="lesson-section-title">Time Expressions</div>
-    <div class="vocab-grid">
-      ${vc('ánpetu','today / day','aan-pe-tu','nakoda')}
-      ${vc('hãhepi','night','haan-he-pi','nakoda')}
-      ${vc('híhana','morning','hee-ha-na','nakoda')}
-      ${vc('iyókiheya','yesterday','i-yoh-ki-he-ya','nakoda')}
-      ${vc('hãske','tomorrow','haan-ske','nakoda')}
-      ${vc('ektá','there / then','ek-taa','nakoda')}
-    </div>
-    <div class="lesson-section-title">Directional Words</div>
-    <div class="vocab-grid">
-      ${vc('ektá','there / to there','ek-taa','nakoda')}
-      ${vc('dé','here / this','day','nakoda')}
-      ${vc('iyáya','to go (away)','i-yaa-ya','nakoda')}
-      ${vc('ú','to come','oo','nakoda')}
-    </div>
-    ${grammarNote('nakoda','Building Simple Sentences','<p>At the beginner level, you can build simple Nakoda utterances by combining time words, nouns, and verbs. For example: <em>Híhana wicháshta ú.</em> — "In the morning the man comes." Word order in Nakoda tends toward subject-object-verb (SOV) in basic sentences, though polysynthetic complexity means the verb often carries most of the meaning.</p>')}
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 7 Assessment</div>
-      <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n7-1','What does "híhana" mean?',['Night','Tomorrow','Morning','Yesterday'],2)}
-      ${mcQuestion('n7-2','The Nakoda word for "tomorrow" is:',['iyókiheya','hãske','ektá','hãhepi'],1)}
-      <div class="assess-part-title">Part B — Fill in the Blank</div>
-      ${fillQ('n7-f1','The Nakoda word for "yesterday" is _____.','iyókiheya','iyókiheya')}
-      <div class="q-block"><div class="q-text">Use the words you know to write a 1–2 word sentence using a time expression and a person. (e.g., "Morning + man")</div><textarea class="ans-textarea" placeholder="Híhana wicháshta..."></textarea></div>
-    </div>`,
- 
-    // ── Nakoda Ch 7: Culture ──
-    `<div class="ch-page-header nakoda"><div class="ch-page-label nakoda">Nakoda · Chapter 8</div><h1 class="ch-page-title">Culture &amp; Community</h1><div class="ch-page-sub">Values · Expressions · Community life</div></div>
-    <div class="objectives-box"><h4>Learning Objectives</h4><ul>
-      <li>Learn culturally significant vocabulary from the Îethka Nakoda worldview</li>
-      <li>Use expressions of feeling and values</li>
-      <li>Complete a guided writing exercise in Nakoda</li>
-      <li>Read and respond to a short narrative passage</li>
-    </ul></div>
-    <div class="info-callout"><strong>Cultural note:</strong> Language and culture are inseparable. The vocabulary in this chapter reflects values and concepts central to Îethka Nakoda identity. Some concepts do not translate directly into English — this is itself an important lesson.</div>
-    <div class="lesson-section-title">Values &amp; Feelings</div>
-    <div class="vocab-grid">
-      ${vc('chantéshkuya','to be kind / have a good heart','chaan-tay-sku-ya','nakoda')}
-      ${vc('wówahwala','patience / calm','woh-wah-wa-la','nakoda')}
-      ${vc('wóčhitika','bravery / courage','woh-chi-ti-ka','nakoda')}
-      ${vc('Pidámayaye','gratitude / thank you','pi-daa-ma-ya-ye','nakoda')}
-      ${vc('wóksape','wisdom','wok-sa-pe','nakoda')}
-    </div>
-    <div class="lesson-section-title">Community Vocabulary</div>
-    <div class="vocab-grid">
-      ${vc('oyáte','people / community / nation','o-yaa-te','nakoda')}
-      ${vc('timáhel','home / inside','ti-maa-hel','nakoda')}
-      ${vc('wichóni','life','wi-choh-ni','nakoda')}
-      ${vc('makóče','land / territory','ma-ko-chay','nakoda')}
-      ${vc('wakha','sacred / spirit','wak-haan','nakoda')}
-    </div>
-    ${grammarNote('nakoda','Language as Culture','<p>The word <strong>wakha</strong> carries meanings of sacred, mysterious, and spirit — it cannot be reduced to one English word. Similarly, <strong>oyáte</strong> means more than just "people" — it carries the sense of a nation, community, and kinship network. Language learning is also cultural learning.</p>')}
-    <div class="lesson-section-title">Short Story — Comprehension</div>
-    <div class="dialogue-box">
-      <div class="dialogue-label">Read the passage and answer the questions below</div>
-      <p style="font-size:0.9rem;line-height:1.9;margin-bottom:1rem;"><em>Ecén ánpetu. Oyáte dé timáhel. Unkí wóksape kichíya. Wičhóni ecén. Pidámayaye makóče.</em></p>
-      <p style="font-size:0.8rem;color:var(--muted);font-style:italic;">Approximate translation: It is a good day. The people are in the home here. Grandmother brings wisdom. Life is good. Thank you to the land/territory.</p>
-    </div>
-    <div class="assessment-section">
-      <div class="assess-title">Chapter 8 Assessment — Culture &amp; Community</div>
-      <div class="assess-part-title">Part A — Comprehension</div>
-      ${mcQuestion('n8-1','According to the story passage, who brings wisdom?',['The man','The young one','Grandmother (unkí)','The community'],2)}
-      ${mcQuestion('n8-2','What does "wakha" mean?',['Community','Land','Sacred / Spirit','Bravery'],2)}
-      <div class="assess-part-title">Part B — Writing Prompt</div>
-      <div class="q-block"><div class="q-text">Guided writing: Using vocabulary from this chapter and earlier chapters, write 2–3 Nakoda phrases or sentences about your community, family, or values. English notes are fine alongside the Nakoda.</div><textarea class="ans-textarea" style="min-height:110px;" placeholder="Ecén oyáte. Unkí wóksape..."></textarea></div>
-      <div class="assess-part-title">Part C — Reflection</div>
-      <div class="q-block"><div class="q-text">Reflect (in English): What does it mean that some Nakoda words like wakha cannot be fully translated into English? What does this tell us about language and culture?</div><textarea class="ans-textarea" style="min-height:90px;" placeholder="Language carries worldview..."></textarea></div>
-    </div>`
-  ];
-  return ch[idx] || '<p style="color:var(--muted);">Full lesson content coming soon.</p>';
-}
- 
-/* ═══════════════════════════════════════
-   NAVIGATION
-═══════════════════════════════════════ */
-let currentLang = null;
- 
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => {
-    s.classList.remove('active');
-    s.style.display = 'none';
-  });
-  const target = document.getElementById(id);
-  target.classList.add('active');
-  target.style.display = 'block';
-  try { window.scrollTo({top:0,left:0,behavior:'instant'}); } catch(e) { window.scrollTo(0,0); }
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
- 
-function goHome() { showScreen('screen-home'); }
- 
-function showLanguage(lang) {
-  currentLang = lang;
-  const L = LANGUAGES[lang];
-  document.getElementById('lang-nav-title').textContent = L.name;
-  document.getElementById('lang-header-inner').className = 'lang-header-inner ' + L.headerClass;
-  document.getElementById('lh-tag').textContent = L.tag;
-  document.getElementById('lh-name').className = 'lang-header-name ' + L.nameClass;
-  document.getElementById('lh-name').textContent = L.name;
-  document.getElementById('lh-sub').textContent = L.sub;
-  document.getElementById('lh-meta').textContent = L.meta;
-  document.getElementById('lang-limitation').textContent = L.limitation;
-  document.getElementById('lang-sources').textContent = L.sources;
- 
-  const grid = document.getElementById('chapters-grid');
-  grid.innerHTML = L.chapters.map((ch, i) => `
-    <div class="ch-card ${lang}-card" data-lang="${lang}" data-idx="${i}" role="button" tabindex="0">
-      <div class="ch-card-top">
-        <div class="ch-num ${lang}">${ch.num}</div>
-        <div class="ch-title">${ch.title}</div>
-        <div class="ch-sub">${ch.sub}</div>
-      </div>
-      <div class="ch-card-mid">
-        <ul class="ch-lesson-list">
-          ${ch.lessons.map(l => `<li class="ch-lesson-item"><span class="ch-dot ${lang}"></span>${l}</li>`).join('')}
-        </ul>
-      </div>
-      <div class="ch-card-bot">
-        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
-          <span class="ch-tag ${lang}">${ch.tag}</span>
-          <span class="ch-tag assess">${ch.assess}</span>
-        </div>
-        <span class="ch-open-btn ${lang}">Open →</span>
-      </div>
-    </div>
-  `).join('');
- 
-  grid.querySelectorAll('.ch-card').forEach(card => {
-    card.addEventListener('click', function() {
-      showChapter(this.dataset.lang, parseInt(this.dataset.idx));
-    });
-    card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') showChapter(this.dataset.lang, parseInt(this.dataset.idx));
-    });
-  });
- 
-  showScreen('screen-language');
-}
- 
-function showChapter(lang, idx) {
-  const L = LANGUAGES[lang];
-  const ch = L.chapters[idx];
-  document.getElementById('chapter-nav-title').textContent = ch.num + ' — ' + ch.title;
-  document.getElementById('chapter-content').innerHTML = getChapterContent(lang, idx);
-  showScreen('screen-chapter');
-}
- 
-function backToLanguage() {
-  if (currentLang) showLanguage(currentLang);
-  else goHome();
-}
- 
-function showContact() { showScreen('screen-contact'); }
- 
-/* ═══════════════════════════════════════
-   ASSESSMENTS
-═══════════════════════════════════════ */
-function checkMC(btn, correct, fbId) {
-  const block = btn.closest('.q-block');
-  block.querySelectorAll('.opt-btn').forEach(b => { b.disabled = true; });
-  btn.classList.add(correct ? 'correct' : 'wrong');
-  const fb = document.getElementById(fbId);
-  if (correct) {
-    fb.textContent = '✓ Correct!'; fb.className = 'fb ok';
-  } else {
-    fb.textContent = '✗ Not quite — try reviewing the lesson above.'; fb.className = 'fb no';
-  }
-}
- 
-function checkFill(inputId, answer, fbId) {
-  const val = document.getElementById(inputId).value.trim();
-  const fb = document.getElementById(fbId);
-  const normalize = s => s.toLowerCase().replace(/[āīōêãĩũõâîûôčšž]/g, c => ({ā:'a',ī:'i',ō:'o',ê:'e',ã:'a',ĩ:'i',ũ:'u',õ:'o',â:'a',î:'i',û:'u',ô:'o',č:'c',š:'s',ž:'z'}[c]||c));
-  if (normalize(val) === normalize(answer)) {
-    fb.textContent = '✓ Correct!'; fb.className = 'fb ok';
-  } else {
-    fb.textContent = `✗ Expected: ${answer}`; fb.className = 'fb no';
-  }
-}
- 
-/* ═══════════════════════════════════════
-   CONTACT FORM
-═══════════════════════════════════════ */
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const form = document.getElementById('contact-form');
-  const data = new FormData(form);
-  fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(data).toString() })
-    .then(() => {
-      form.style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    })
-    .catch(() => {
-      form.style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    });
-}
-</script>
+
 </body>
 </html>
