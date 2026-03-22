@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -870,9 +870,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line
     <div class="home-left">
       <div class="home-eyebrow">Indigenous Language Learning</div>
       <h1 class="home-title">
-        Languages that<br>
-        <span class="gold">must not</span><br>
-        be forgotten
+        <em>Languages that<br>
+        <span class="gold">must be</span><br>
+        remembered</em>
       </h1>
       <div class="home-stats">
         <div class="stat-item">
@@ -1532,7 +1532,7 @@ function getCreeChapter(idx) {
       <div class="assess-title">Chapter 7 Assessment</div>
       <div class="assess-part-title">Part A — Multiple Choice</div>
       ${mcQuestion('c7-1','What does "askiy" mean?',['River','Tree','Earth / land / the world','Lake'],2)}
-      ${mcQuestion('c7-2','Which animal is an animate noun? (all are, but which word means eagle?)','',['môswa (moose)','kihêw (eagle)','sîpiy (river)','mîtos (poplar tree)'],1)}
+      ${mcQuestion('c7-2','Which word means eagle in Plains Cree?',['môswa (moose)','kihêw (eagle)','sîpiy (river)','mîtos (poplar tree)'],1)}
       <div class="assess-part-title">Part B — Translation</div>
       <div class="q-block"><div class="q-text">Translate into English: "mispon. pê-itohtêw awa maskwa ohci sâkahikan."</div><textarea class="ans-textarea" placeholder="It is snowing. A bear comes from the lake."></textarea></div>
     </div>`,
@@ -1600,7 +1600,7 @@ function getNakodaChapter(idx) {
       <li>Know what a polysynthetic language is</li>
       <li>Understand why the SEA standardized orthography was developed</li>
     </ul></div>
-    <div class="info-callout"><strong>Source note:</strong> The orthography used here is the standardized Stoney Nakoda writing system developed by the Stoney Education Authority and The Language Conservancy (2019–2021), in collaboration with 50+ Îyârhe Nakoda elders from the Bearspaw, Chiniki, and Wesley First Nations.</div>
+    <div class="info-callout"><strong>Source note:</strong> The orthography used here is the standardized Stoney Nakoda writing system at <strong>dictionary.stoneynakoda.org</strong>, developed by the Stoney Education Authority and The Language Conservancy (2019–2021), in collaboration with 50+ Îyârhe Nakoda elders from the Bearspaw, Chiniki, and Wesley First Nations. The SEA uses <strong>digraphs</strong> (ch, th, rh, sh) rather than special characters like č or š — this is the correct and community-approved standard.</div>
     <div class="lesson-section-title">Vowels</div>
     <div class="vocab-grid">
       ${vc('a','as in "father"','short','nakoda')}${vc('â','longer "a"','long','nakoda')}
@@ -1614,7 +1614,7 @@ function getNakodaChapter(idx) {
     <div class="assessment-section">
       <div class="assess-title">Chapter 1 Assessment</div>
       <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n1-1','Nasalized vowels in Nakoda are written with:',['A macron (ā)','A tilde (ã)','A circumflex (â)','Doubling the vowel'],1)}
+      ${mcQuestion('n1-1','Which of the following is part of the SEA Stoney Nakoda orthography?',['č š ž (Czech-style letters)','ch th rh (digraphs)','c̈ ṧ (dotted letters)','q x exclusively'],1)}
       ${mcQuestion('n1-2','A polysynthetic language is one where:',['There are no vowels','One word can express a whole sentence/idea','All words are borrowed from English','Grammar is very simple'],1)}
       ${mcQuestion('n1-3','Who developed the standardized Nakoda orthography?',['University of Calgary','Federal government','Stoney Education Authority with 50+ elders','A single linguist in the 1800s'],2)}
     </div>`,
@@ -1674,8 +1674,8 @@ function getNakodaChapter(idx) {
     <div class="vocab-grid">
       ${vc('Wãži','1','waa-zhi','nakoda')}${vc('Núba','2','noo-ba','nakoda')}
       ${vc('Yamní','3','yam-ni','nakoda')}${vc('Tóba','4','toh-ba','nakoda')}
-      ${vc('Záptã','5','zap-taan','nakoda')}${vc('Šákpe','6','shak-pe','nakoda')}
-      ${vc('Šakówi','7','sha-ko-wi','nakoda')}${vc('Šakónoba','8','sha-ko-no-ba','nakoda')}
+      ${vc('Záptã','5','zap-taan','nakoda')}${vc('Shákpe','6','shak-pe','nakoda')}
+      ${vc('Shakówi','7','sha-ko-wi','nakoda')}${vc('Shakónoba','8','sha-ko-no-ba','nakoda')}
       ${vc('Napčíyuga','9','nap-chi-yu-ga','nakoda')}${vc('Wikcémna','10','wik-kem-na','nakoda')}
     </div>
     ${grammarNote('nakoda','Teen Numbers — agé Pattern','<p>Teen numbers in Nakoda are formed by placing <strong>agé</strong> before the unit number: <em>agé wãži</em> = 11, <em>agé núba</em> = 12, <em>agé yamní</em> = 13, and so on through 19.</p>')}
@@ -1694,7 +1694,7 @@ function getNakodaChapter(idx) {
     <div class="assessment-section">
       <div class="assess-title">Chapter 3 Assessment</div>
       <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n3-1','What is the Nakoda word for 5?',['Tóba','Šákpe','Záptã','Yamní'],2)}
+      ${mcQuestion('n3-1','What is the Nakoda word for 5?',['Tóba','Shákpe','Záptã','Yamní'],2)}
       ${mcQuestion('n3-2','How are teen numbers formed in Nakoda?',['Unit + wikcémna','agé + unit number','Unit + šak','opáwinge + unit'],1)}
       <div class="assess-part-title">Part B — Fill in the Blank</div>
       ${fillQ('n3-f1','The Nakoda word for 10 is _____.','Wikcémna','Wikcémna')}
@@ -1708,35 +1708,36 @@ function getNakodaChapter(idx) {
       <li>Understand that Nakoda has gendered speech patterns for some terms</li>
       <li>Describe people using basic characteristic vocabulary</li>
     </ul></div>
-    <div class="limitation-note">⚠ Kinship terminology in Nakoda is complex and context-dependent. The terms below represent the most widely documented beginner-level vocabulary from the SEA Level 1 textbook. Full kinship systems are covered in SEA Level 2.</div>
+    <div class="limitation-note">⚠ <strong>CONTENT NOTICE — Chapters 4–8 (Nakoda):</strong> The SEA online dictionary (dictionary.stoneynakoda.org) requires a live search interface that cannot be programmatically accessed for bulk verification. The vocabulary in Chapters 4–8 is drawn from Collette &amp; McArthur (2017) <em>Nakoda Language Lessons</em> and cross-referenced where possible, but <strong>has not been individually confirmed against the SEA dictionary</strong>. These chapters should be treated as a draft curriculum framework only. All vocabulary must be verified by a fluent Îyârhe Nakoda speaker or against the SEA Stoney Mobile Dictionary app before teaching. Chapters 1–3 (sounds, greetings, numbers) are the only chapters considered verified.</div>
+    <div class="limitation-note">⚠ Kinship terminology in Nakoda is complex and context-dependent. The terms below represent beginner-level vocabulary from Collette &amp; McArthur (2017). Full kinship systems are covered in SEA Level 2.</div>
     <div class="lesson-section-title">Core Kinship Terms</div>
     <div class="vocab-grid">
       ${vc('iná','mother','ee-naa','nakoda')}
       ${vc('até','father','a-tay','nakoda')}
       ${vc('unkí','grandmother','un-ki','nakoda')}
       ${vc('unkáš','grandfather','un-kaash','nakoda')}
-      ${vc('čhiyé','older brother (said by male)','chi-yay','nakoda')}
-      ${vc('čhuwé','older sister (said by female)','chu-way','nakoda')}
-      ${vc('šijé','older brother (said by female)','shi-zhay','nakoda')}
+      ${vc('chiyé','older brother (said by male)','chi-yay','nakoda')}
+      ${vc('chuwé','older sister (said by female)','chu-way','nakoda')}
+      ${vc('shijé','older brother (said by female)','shi-zhay','nakoda')}
       ${vc('miyé','younger sibling','mi-yay','nakoda')}
     </div>
     ${grammarNote('nakoda','Gendered Speech in Kinship','<p>Nakoda has some terms where the word used depends on the speaker\'s gender — not the person being described. For example, the word for "older brother" differs depending on whether a man or woman is speaking. This is a feature of Siouan languages generally and requires attention when learning kinship terms.</p>')}
     <div class="lesson-section-title">Describing People</div>
     <div class="vocab-grid">
-      ${vc('wičhášta','man','wi-chash-ta','nakoda')}
+      ${vc('wicháshta','man','wi-chash-ta','nakoda')}
       ${vc('wiyã','woman','wi-yaan','nakoda')}
       ${vc('hokšína','boy','hok-shi-na','nakoda')}
-      ${vc('wičhíncala','girl','wi-chin-cha-la','nakoda')}
-      ${vc('čhiskéya','old (person)','chi-skay-ya','nakoda')}
+      ${vc('wichíncala','girl','wi-chin-cha-la','nakoda')}
+      ${vc('chishkéya','old (person)','chi-skay-ya','nakoda')}
       ${vc('tečhíla','young','te-chi-la','nakoda')}
     </div>
     <div class="assessment-section">
       <div class="assess-title">Chapter 4 Assessment</div>
       <div class="assess-part-title">Part A — Multiple Choice</div>
       ${mcQuestion('n4-1','What does "unkí" mean?',['Grandfather','Mother','Grandmother','Older sister'],2)}
-      ${mcQuestion('n4-2','The word for "older brother" in Nakoda:',['Is the same regardless of who is speaking','Differs depending on the speaker\'s gender','Is always čhiyé','Does not exist'],1)}
+      ${mcQuestion('n4-2','The word for "older brother" in Nakoda:',['Is the same regardless of who is speaking','Differs depending on the speaker\'s gender','Is always chiyé','Does not exist'],1)}
       <div class="assess-part-title">Part B — Match</div>
-      <div class="q-block"><div class="q-text">Match the Nakoda word to its English meaning: wičhášta / wiyã / hokšína / wičhíncala</div><textarea class="ans-textarea" placeholder="wičhášta = man; wiyã = woman; hokšína = boy; wičhíncala = girl"></textarea></div>
+      <div class="q-block"><div class="q-text">Match the Nakoda word to its English meaning: wicháshta / wiyã / hokšína / wichíncala</div><textarea class="ans-textarea" placeholder="wicháshta = man; wiyã = woman; hokšína = boy; wichíncala = girl"></textarea></div>
     </div>`,
  
     // ── Nakoda Ch 4: Animals & Nature ──
@@ -1750,8 +1751,8 @@ function getNakodaChapter(idx) {
     <div class="vocab-grid">
       ${vc('mnohó','bear','mno-hoh','nakoda')}
       ${vc('táku','moose','taa-ku','nakoda')}
-      ${vc('šúga','dog','shoo-ga','nakoda')}
-      ${vc('šúgatãka','horse','shoo-ga-taan-ka','nakoda')}
+      ${vc('shúga','dog','shoo-ga','nakoda')}
+      ${vc('shúgatãka','horse','shoo-ga-taan-ka','nakoda')}
       ${vc('zitká','bird','zit-kaa','nakoda')}
       ${vc('hoksína','calf / young animal','hok-si-na','nakoda')}
     </div>
@@ -1767,7 +1768,7 @@ function getNakodaChapter(idx) {
     </div>
     <div class="lesson-section-title">Cloze Exercise — Nature Passage</div>
     <div class="dialogue-box">
-      <div class="dialogue-label">Fill in the blanks using: mnohó · mní · makóče · ánpetu · šúgatãka</div>
+      <div class="dialogue-label">Fill in the blanks using: mnohó · mní · makóče · ánpetu · shúgatãka</div>
       <p style="font-size:0.9rem;line-height:1.8;">Ecén _______ [day]. Wičhášta _______ [horse] kichíya. _______ [Bear] ohci _______ [water] pé. Ecén _______ [land/territory] — tečhíla!</p>
       <p style="font-size:0.78rem;color:var(--muted);margin-top:0.75rem;font-style:italic;">Translation: It is a good day. The man comes with a horse. A bear comes from the water. Good land — it is beautiful/young!</p>
     </div>
@@ -1792,7 +1793,7 @@ function getNakodaChapter(idx) {
       ${vc('wóyute','food','woh-yu-te','nakoda')}
       ${vc('mní','water (also: drink)','mnee','nakoda')}
       ${vc('wóžapi','berry / fruit','woh-zha-pi','nakoda')}
-      ${vc('tȟaló','meat','thah-loh','nakoda')}
+      ${vc('thalo','meat','thah-loh','nakoda')}
       ${vc('ağúyapi','bread','a-gu-ya-pi','nakoda')}
     </div>
     <div class="limitation-note">⚠ Food vocabulary has limited verified public sources beyond the SEA Vocab Builder app categories. The terms above are drawn from Siouan language family documentation and cross-checked where possible with SEA materials.</div>
@@ -1808,7 +1809,7 @@ function getNakodaChapter(idx) {
     <div class="assessment-section">
       <div class="assess-title">Chapter 6 Assessment</div>
       <div class="assess-part-title">Part A — Multiple Choice</div>
-      ${mcQuestion('n6-1','What does "tȟaló" mean?',['Bread','Meat','Berry','Water'],1)}
+      ${mcQuestion('n6-1','What does "thalo" mean?',['Bread','Meat','Berry','Water'],1)}
       ${mcQuestion('n6-2','The word "ištá" means:',['Ear','Hand','Eye','Heart'],2)}
       <div class="assess-part-title">Part B — Fill in the Blank</div>
       ${fillQ('n6-f1','The Nakoda word for "head" is _____.','paá','paá')}
@@ -1838,7 +1839,7 @@ function getNakodaChapter(idx) {
       ${vc('iyáya','to go (away)','i-yaa-ya','nakoda')}
       ${vc('ú','to come','oo','nakoda')}
     </div>
-    ${grammarNote('nakoda','Building Simple Sentences','<p>At the beginner level, you can build simple Nakoda utterances by combining time words, nouns, and verbs. For example: <em>Híhana wičhášta ú.</em> — "In the morning the man comes." Word order in Nakoda tends toward subject-object-verb (SOV) in basic sentences, though polysynthetic complexity means the verb often carries most of the meaning.</p>')}
+    ${grammarNote('nakoda','Building Simple Sentences','<p>At the beginner level, you can build simple Nakoda utterances by combining time words, nouns, and verbs. For example: <em>Híhana wicháshta ú.</em> — "In the morning the man comes." Word order in Nakoda tends toward subject-object-verb (SOV) in basic sentences, though polysynthetic complexity means the verb often carries most of the meaning.</p>')}
     <div class="assessment-section">
       <div class="assess-title">Chapter 7 Assessment</div>
       <div class="assess-part-title">Part A — Multiple Choice</div>
@@ -1846,7 +1847,7 @@ function getNakodaChapter(idx) {
       ${mcQuestion('n7-2','The Nakoda word for "tomorrow" is:',['iyókiheya','hãske','ektá','hãhepi'],1)}
       <div class="assess-part-title">Part B — Fill in the Blank</div>
       ${fillQ('n7-f1','The Nakoda word for "yesterday" is _____.','iyókiheya','iyókiheya')}
-      <div class="q-block"><div class="q-text">Use the words you know to write a 1–2 word sentence using a time expression and a person. (e.g., "Morning + man")</div><textarea class="ans-textarea" placeholder="Híhana wičhášta..."></textarea></div>
+      <div class="q-block"><div class="q-text">Use the words you know to write a 1–2 word sentence using a time expression and a person. (e.g., "Morning + man")</div><textarea class="ans-textarea" placeholder="Híhana wicháshta..."></textarea></div>
     </div>`,
  
     // ── Nakoda Ch 7: Culture ──
@@ -1860,7 +1861,7 @@ function getNakodaChapter(idx) {
     <div class="info-callout"><strong>Cultural note:</strong> Language and culture are inseparable. The vocabulary in this chapter reflects values and concepts central to Îethka Nakoda identity. Some concepts do not translate directly into English — this is itself an important lesson.</div>
     <div class="lesson-section-title">Values &amp; Feelings</div>
     <div class="vocab-grid">
-      ${vc('čhantéškuya','to be kind / have a good heart','chaan-tay-sku-ya','nakoda')}
+      ${vc('chantéshkuya','to be kind / have a good heart','chaan-tay-sku-ya','nakoda')}
       ${vc('wówahwala','patience / calm','woh-wah-wa-la','nakoda')}
       ${vc('wóčhitika','bravery / courage','woh-chi-ti-ka','nakoda')}
       ${vc('Pidámayaye','gratitude / thank you','pi-daa-ma-ya-ye','nakoda')}
@@ -1870,11 +1871,11 @@ function getNakodaChapter(idx) {
     <div class="vocab-grid">
       ${vc('oyáte','people / community / nation','o-yaa-te','nakoda')}
       ${vc('timáhel','home / inside','ti-maa-hel','nakoda')}
-      ${vc('wičhóni','life','wi-choh-ni','nakoda')}
+      ${vc('wichóni','life','wi-choh-ni','nakoda')}
       ${vc('makóče','land / territory','ma-ko-chay','nakoda')}
-      ${vc('wakȟã','sacred / spirit','wak-haan','nakoda')}
+      ${vc('wakha','sacred / spirit','wak-haan','nakoda')}
     </div>
-    ${grammarNote('nakoda','Language as Culture','<p>The word <strong>wakȟã</strong> carries meanings of sacred, mysterious, and spirit — it cannot be reduced to one English word. Similarly, <strong>oyáte</strong> means more than just "people" — it carries the sense of a nation, community, and kinship network. Language learning is also cultural learning.</p>')}
+    ${grammarNote('nakoda','Language as Culture','<p>The word <strong>wakha</strong> carries meanings of sacred, mysterious, and spirit — it cannot be reduced to one English word. Similarly, <strong>oyáte</strong> means more than just "people" — it carries the sense of a nation, community, and kinship network. Language learning is also cultural learning.</p>')}
     <div class="lesson-section-title">Short Story — Comprehension</div>
     <div class="dialogue-box">
       <div class="dialogue-label">Read the passage and answer the questions below</div>
@@ -1885,11 +1886,11 @@ function getNakodaChapter(idx) {
       <div class="assess-title">Chapter 8 Assessment — Culture &amp; Community</div>
       <div class="assess-part-title">Part A — Comprehension</div>
       ${mcQuestion('n8-1','According to the story passage, who brings wisdom?',['The man','The young one','Grandmother (unkí)','The community'],2)}
-      ${mcQuestion('n8-2','What does "wakȟã" mean?',['Community','Land','Sacred / Spirit','Bravery'],2)}
+      ${mcQuestion('n8-2','What does "wakha" mean?',['Community','Land','Sacred / Spirit','Bravery'],2)}
       <div class="assess-part-title">Part B — Writing Prompt</div>
       <div class="q-block"><div class="q-text">Guided writing: Using vocabulary from this chapter and earlier chapters, write 2–3 Nakoda phrases or sentences about your community, family, or values. English notes are fine alongside the Nakoda.</div><textarea class="ans-textarea" style="min-height:110px;" placeholder="Ecén oyáte. Unkí wóksape..."></textarea></div>
       <div class="assess-part-title">Part C — Reflection</div>
-      <div class="q-block"><div class="q-text">Reflect (in English): What does it mean that some Nakoda words like wakȟã cannot be fully translated into English? What does this tell us about language and culture?</div><textarea class="ans-textarea" style="min-height:90px;" placeholder="Language carries worldview..."></textarea></div>
+      <div class="q-block"><div class="q-text">Reflect (in English): What does it mean that some Nakoda words like wakha cannot be fully translated into English? What does this tell us about language and culture?</div><textarea class="ans-textarea" style="min-height:90px;" placeholder="Language carries worldview..."></textarea></div>
     </div>`
   ];
   return ch[idx] || '<p style="color:var(--muted);">Full lesson content coming soon.</p>';
@@ -1901,9 +1902,16 @@ function getNakodaChapter(idx) {
 let currentLang = null;
  
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
+  const target = document.getElementById(id);
+  target.classList.add('active');
+  target.style.display = 'block';
+  try { window.scrollTo({top:0,left:0,behavior:'instant'}); } catch(e) { window.scrollTo(0,0); }
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
  
 function goHome() { showScreen('screen-home'); }
@@ -1923,7 +1931,7 @@ function showLanguage(lang) {
  
   const grid = document.getElementById('chapters-grid');
   grid.innerHTML = L.chapters.map((ch, i) => `
-    <div class="ch-card ${lang}-card" onclick="showChapter('${lang}',${i})">
+    <div class="ch-card ${lang}-card" data-lang="${lang}" data-idx="${i}" role="button" tabindex="0">
       <div class="ch-card-top">
         <div class="ch-num ${lang}">${ch.num}</div>
         <div class="ch-title">${ch.title}</div>
@@ -1943,6 +1951,15 @@ function showLanguage(lang) {
       </div>
     </div>
   `).join('');
+ 
+  grid.querySelectorAll('.ch-card').forEach(card => {
+    card.addEventListener('click', function() {
+      showChapter(this.dataset.lang, parseInt(this.dataset.idx));
+    });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') showChapter(this.dataset.lang, parseInt(this.dataset.idx));
+    });
+  });
  
   showScreen('screen-language');
 }
