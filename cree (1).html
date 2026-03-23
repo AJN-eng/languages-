@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plains Cree (Nêhiyawêwin) — Still Speaking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-nav">
+  <a href="index.html" class="app-nav-logo">Still Speaking</a>
+  <span class="app-nav-sep">|</span>
+  <span class="app-nav-title" id="nav-breadcrumb">Plains Cree — Nêhiyawêwin</span>
+  <div class="app-nav-links">
+    <a href="index.html">All Languages</a>
+    <a href="nakoda.html">Nakoda</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- ── LANGUAGE BANNER ── -->
+<div class="lang-banner cree-banner" id="banner-chapters">
+  <div class="lang-banner-inner">
+    <div>
+      <div class="lang-banner-tag">Plains Cree · Y-dialect · Standard Roman Orthography (SRO)</div>
+      <div class="lang-banner-name cree">Nêhiyawêwin</div>
+      <div class="lang-banner-sub">Plains Cree is the most widely spoken Indigenous language in Canada, with approximately 34,000 speakers across Saskatchewan, Alberta, Manitoba, and Montana. All content verified against Okimāsis (2004), Ratt (2016), and Wolvengrey (2001).</div>
+    </div>
+    <div class="lang-banner-stats">
+      <div class="lbs-num">8</div>
+      <div class="lbs-label">Chapters</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     CHAPTER GRID VIEW
+══════════════════════════════ -->
+<div id="view-chapters">
+  <div class="chapters-wrap">
+    <div class="chapters-label">Select a chapter to begin</div>
+    <div class="chapters-grid">
+
+      <div class="ch-card cree-card" onclick="openChapter(0)">
+        <div class="ch-card-top">
+          <div class="ch-num cree">Chapter 1</div>
+          <div class="ch-title">Sounds &amp; the Writing System</div>
+          <div class="ch-sub">Standard Roman Orthography (SRO)</div>
+        </div>
+        <div class="ch-card-mid">
+          <ul class="ch-lesson-list">
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Short vowels: a, i, o</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Long vowels: ā, ī, ō, ê — length changes meaning</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Key consonants and pronunciation</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>SRO vs Syllabics — introduction</li>
+          </ul>
+        </div>
+        <div class="ch-card-bot">
+          <div style="display:flex;gap:0.4rem;">
+            <span class="ch-tag cree">Foundational</span>
+            <span class="ch-tag assess">Chapter Quiz</span>
+          </div>
+          <span class="ch-open-btn cree">Open →</span>
+        </div>
+      </div>
+
+      <div class="ch-card cree-card" onclick="openChapter(1)">
+        <div class="ch-card-top">
+          <div class="ch-num cree">Chapter 2</div>
+          <div class="ch-title">Greetings &amp; Introductions</div>
+          <div class="ch-sub">tânisi · namôya nânitaw · nitisiyihkâson</div>
+        </div>
+        <div class="ch-card-mid">
+          <ul class="ch-lesson-list">
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Core greetings: tânisi, âhow, êkosi</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Introducing yourself: nitisiyihkâson</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Asking someone's name</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Where are you from: nitohcîn</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Full dialogue practice</li>
+          </ul>
+        </div>
+        <div class="ch-card-bot">
+          <div style="display:flex;gap:0.4rem;">
+            <span class="ch-tag cree">Communication</span>
+            <span class="ch-tag assess">Chapter Quiz</span>
+          </div>
+          <span class="ch-open-btn cree">Open →</span>
+        </div>
+      </div>
+
+      <div class="ch-card cree-card" onclick="openChapter(2)">
+        <div class="ch-card-top">
+          <div class="ch-num cree">Chapter 3</div>
+          <div class="ch-title">Nouns &amp; Animacy</div>
+          <div class="ch-sub">The fundamental distinction in Cree grammar</div>
+        </div>
+        <div class="ch-card-mid">
+          <ul class="ch-lesson-list">
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Animate (awa) vs inanimate (ôma)</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Common animate nouns: atim, maskwa, nâpêw</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Common inanimate nouns</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Singular and plural forms</li>
+          </ul>
+        </div>
+        <div class="ch-card-bot">
+          <div style="display:flex;gap:0.4rem;">
+            <span class="ch-tag cree">Grammar</span>
+            <span class="ch-tag assess">Mid + Final Quiz</span>
+          </div>
+          <span class="ch-open-btn cree">Open →</span>
+        </div>
+      </div>
+
+      <div class="ch-card cree-card" onclick="openChapter(3)">
+        <div class="ch-card-top">
+          <div class="ch-num cree">Chapter 4</div>
+          <div class="ch-title">Numbers &amp; Time</div>
+          <div class="ch-sub">pêyak · nîso · nisto · nêwo · niyânân…</div>
+        </div>
+        <div class="ch-card-mid">
+          <ul class="ch-lesson-list">
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Numbers 1–20 (pêyak to nistanaw)</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Teen number pattern (-osâp suffix)</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Days of the week (number + kîsikâw)</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Seasons</li>
+          </ul>
+        </div>
+        <div class="ch-card-bot">
+          <div style="display:flex;gap:0.4rem;">
+            <span class="ch-tag cree">Vocabulary</span>
+            <span class="ch-tag assess">Chapter Quiz</span>
+          </div>
+          <span class="ch-open-btn cree">Open →</span>
+        </div>
+      </div>
+
+      <div class="ch-card cree-card" onclick="openChapter(4)">
+        <div class="ch-card-top">
+          <div class="ch-num cree">Chapter 5</div>
+          <div class="ch-title">Pronouns &amp; Basic Verbs</div>
+          <div class="ch-sub">niya · kiya · wiya — inclusive vs exclusive we</div>
+        </div>
+        <div class="ch-card-mid">
+          <ul class="ch-lesson-list">
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>All personal pronouns</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Inclusive (kîyanân) vs exclusive (nîyanân) we</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Basic VAI verbs (3rd person singular)</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>VII weather verbs</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Negation: namôya</li>
+          </ul>
+        </div>
+        <div class="ch-card-bot">
+          <div style="display:flex;gap:0.4rem;">
+            <span class="ch-tag cree">Grammar</span>
+            <span class="ch-tag assess">Mid + Final Quiz</span>
+          </div>
+          <span class="ch-open-btn cree">Open →</span>
+        </div>
+      </div>
+
+      <div class="ch-card cree-card" onclick="openChapter(5)">
+        <div class="ch-card-top">
+          <div class="ch-num cree">Chapter 6</div>
+          <div class="ch-title">Family &amp; Kinship</div>
+          <div class="ch-sub">nikâwiy · nôhkom · nimosôm · nistês</div>
+        </div>
+        <div class="ch-card-mid">
+          <ul class="ch-lesson-list">
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Core kinship terms with ni- (my) prefix</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Possessive prefixes: ni- / ki- / o-</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Short dialogue: introducing your family</li>
+          </ul>
+        </div>
+        <div class="ch-card-bot">
+          <div style="display:flex;gap:0.4rem;">
+            <span class="ch-tag cree">Vocabulary + Grammar</span>
+            <span class="ch-tag assess">Chapter Quiz</span>
+          </div>
+          <span class="ch-open-btn cree">Open →</span>
+        </div>
+      </div>
+
+      <div class="ch-card cree-card" onclick="openChapter(6)">
+        <div class="ch-card-top">
+          <div class="ch-num cree">Chapter 7</div>
+          <div class="ch-title">Nature &amp; the Land</div>
+          <div class="ch-sub">askiy · sîpiy · sâkahikan</div>
+        </div>
+        <div class="ch-card-mid">
+          <ul class="ch-lesson-list">
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Land, water, sky vocabulary</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Animals of the Plains (animate nouns)</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Weather expressions (VII verbs)</li>
+          </ul>
+        </div>
+        <div class="ch-card-bot">
+          <div style="display:flex;gap:0.4rem;">
+            <span class="ch-tag cree">Vocabulary</span>
+            <span class="ch-tag assess">Quiz + Translation</span>
+          </div>
+          <span class="ch-open-btn cree">Open →</span>
+        </div>
+      </div>
+
+      <div class="ch-card cree-card" onclick="openChapter(7)">
+        <div class="ch-card-top">
+          <div class="ch-num cree">Chapter 8</div>
+          <div class="ch-title">Questions &amp; Negation</div>
+          <div class="ch-sub">awîna · kikway · tânite · cî</div>
+        </div>
+        <div class="ch-card-mid">
+          <ul class="ch-lesson-list">
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Question words: who, what, where, when, why, how</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Yes/no questions with cî</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Negation: namôya and êkâ</li>
+            <li class="ch-lesson-item"><span class="ch-dot cree"></span>Sample sentence pairs</li>
+          </ul>
+        </div>
+        <div class="ch-card-bot">
+          <div style="display:flex;gap:0.4rem;">
+            <span class="ch-tag cree">Advanced Beginner</span>
+            <span class="ch-tag assess">Translation + Writing</span>
+          </div>
+          <span class="ch-open-btn cree">Open →</span>
+        </div>
+      </div>
+
+    </div><!-- /chapters-grid -->
+
+    <p class="source-note" style="margin-top:1.5rem;">All Plains Cree content verified against: Okimāsis (2004) <em>Cree: Language of the Plains</em> (University of Regina Press); Ratt (2016) <em>mâci-nêhiyawêwin</em> (University of Regina); Wolvengrey (2001) <em>nêhiyawêwin: itwêwina</em>; itwêwina online dictionary (altlab.app).</p>
+  </div>
+</div><!-- /view-chapters -->
+
+
+<!-- ══════════════════════════════
+     LESSON VIEW (hidden until chapter selected)
+══════════════════════════════ -->
+<div id="view-lesson" style="display:none;">
+  <div style="background:var(--cree-pale);border-bottom:1px solid var(--line);padding:0.75rem 2.5rem;display:flex;align-items:center;gap:1rem;">
+    <button onclick="closeChapter()" style="background:none;border:1.5px solid var(--cree-dark);color:var(--cree-dark);padding:0.4rem 1rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:0.83rem;font-weight:600;cursor:pointer;">← All Chapters</button>
+    <span id="lesson-breadcrumb" style="font-size:0.85rem;color:var(--cree-dark);font-weight:500;"></span>
+  </div>
+
+  <div class="lesson-wrap">
+
+    <!-- CHAPTER 1 -->
+    <div class="lesson-panel" id="ch-0">
+      <div class="ch-page-header cree">
+        <div class="ch-page-label cree">Plains Cree · Chapter 1</div>
+        <h1 class="ch-page-title">Sounds &amp; the Writing System</h1>
+        <div class="ch-page-sub">Standard Roman Orthography (SRO)</div>
+      </div>
+      <div class="objectives-box"><h4>Learning Objectives</h4><ul>
+        <li>Identify and pronounce the three short vowels of Plains Cree</li>
+        <li>Recognize long vowels and understand that vowel length changes meaning</li>
+        <li>Read basic words written in SRO</li>
+        <li>Understand the difference between SRO and Syllabics</li>
+      </ul></div>
+
+      <div class="lesson-section-title">The Vowels</div>
+      <div class="grammar-note cree"><div class="gn-label cree">Short Vowels</div>
+        <p>Plains Cree has three short vowels: <strong>a</strong> (like "but"), <strong>i</strong> (like "bit"), and <strong>o</strong> (like "bone" but shorter). They are pronounced lightly and quickly.</p>
+      </div>
+      <div class="grammar-note cree"><div class="gn-label cree">Long Vowels</div>
+        <p>Each short vowel has a long counterpart marked with a macron: <strong>ā</strong>, <strong>ī</strong>, <strong>ō</strong> — plus one extra long vowel <strong>ê</strong>. Long vowels are held roughly twice as long as short ones. <em>This distinction is meaningful — it changes word meaning.</em></p>
+        <p>Example: <strong>nipa</strong> (he/she sleeps) vs <strong>nipā</strong> (he/she is dying). The length matters.</p>
+      </div>
+
+      <div class="lesson-section-title">Vowel Reference</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">a</div><div class="vc-english">as in "cut" — short</div></div>
+        <div class="vocab-card"><div class="vc-native cree">ā</div><div class="vc-english">as in "father" — long</div></div>
+        <div class="vocab-card"><div class="vc-native cree">i</div><div class="vc-english">as in "bit" — short</div></div>
+        <div class="vocab-card"><div class="vc-native cree">ī</div><div class="vc-english">as in "feet" — long</div></div>
+        <div class="vocab-card"><div class="vc-native cree">o</div><div class="vc-english">as in "note" — short</div></div>
+        <div class="vocab-card"><div class="vc-native cree">ō</div><div class="vc-english">as in "road" — long</div></div>
+        <div class="vocab-card"><div class="vc-native cree">ê</div><div class="vc-english">as in "they" — long only</div></div>
+      </div>
+
+      <div class="lesson-section-title">Key Consonant: the letter C</div>
+      <div class="grammar-note cree"><div class="gn-label cree">Pronunciation — correction to a common mistake</div>
+        <p>In SRO, the letter <strong>c</strong> most commonly represents the <strong>"ts"</strong> sound heard in English "ba<em>ts</em>" or "ca<em>ts</em>" — not the "c" in "cat." In some regional dialects of Plains Cree it can sound closer to "ch" in "batch," but the ts pronunciation is the standard. Never pronounce it like a hard English "k." Example: <strong>mîciwin</strong> (food) is approximately "mee-tsi-win."</p>
+        <p>Source: Okimāsis &amp; Wolvengrey, <em>How to Spell it in Cree</em> (2008); Okimāsis (2004) <em>Cree: Language of the Plains</em>.</p>
+      </div>
+
+      <div class="lesson-section-title">SRO vs Syllabics</div>
+      <div class="info-callout"><strong>Two writing systems:</strong> Plains Cree can be written in <strong>Standard Roman Orthography (SRO)</strong> — the alphabet used throughout this site — or in <strong>Syllabics</strong> (ᓀᐦᐃᔭᐍᐏᐣ), a script created in 1840. Both are used by Cree communities. SRO is used here because it is more accessible to beginners learning to read.</div>
+
+      <div class="assessment-section">
+        <div class="assess-title">Chapter 1 Assessment</div>
+        <div class="assess-intro">Test your knowledge of Cree sounds and orthography.</div>
+        <div class="assess-part">Part A — Multiple Choice</div>
+        <div class="q-block">
+          <div class="q-text">1. In SRO, the letter "c" most commonly represents:</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c1-1')">The "c" in "cat" (hard k sound)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c1-1')">The "s" in "sun"</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c1-1')">The "ts" sound in "bats" or "cats"</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c1-1')">The "k" in "kite"</button></li>
+          </ul><div class="fb" id="f-c1-1"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">2. Long vowels in SRO are marked with:</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c1-2')">Doubling the letter (aa, ii)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c1-2')">A macron — a bar above (ā, ī, ō)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c1-2')">An accent mark (á, í)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c1-2')">They are not marked at all</button></li>
+          </ul><div class="fb" id="f-c1-2"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">3. How many short vowels does Plains Cree have?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c1-3')">Two (a, i)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c1-3')">Three (a, i, o)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c1-3')">Four (a, e, i, o)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c1-3')">Five</button></li>
+          </ul><div class="fb" id="f-c1-3"></div>
+        </div>
+        <div class="assess-part">Part B — Fill in the Blank</div>
+        <div class="q-block">
+          <div class="q-text">4. The Cree syllabic script was created in the year _____.</div>
+          <input class="ans-input" type="text" id="i-c1-4" placeholder="year">
+          <button class="check-btn" onclick="checkFill('i-c1-4','1840','f-c1-4')">Check</button>
+          <div class="fb" id="f-c1-4"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">5. The additional long vowel in Cree (not simply a lengthened short vowel) is _____.</div>
+          <input class="ans-input" type="text" id="i-c1-5" placeholder="one letter">
+          <button class="check-btn" onclick="checkFill('i-c1-5','ê','f-c1-5')">Check</button>
+          <div class="fb" id="f-c1-5"></div>
+        </div>
+      </div>
+      <p class="source-note">Source: Okimāsis (2004) <em>Cree: Language of the Plains</em>, University of Regina Press; Ratt (2016) <em>mâci-nêhiyawêwin</em>.</p>
+    </div>
+
+    <!-- CHAPTER 2 -->
+    <div class="lesson-panel" id="ch-1">
+      <div class="ch-page-header cree">
+        <div class="ch-page-label cree">Plains Cree · Chapter 2</div>
+        <h1 class="ch-page-title">Greetings &amp; Introductions</h1>
+        <div class="ch-page-sub">tânisi · namôya nânitaw · nitisiyihkâson</div>
+      </div>
+      <div class="objectives-box"><h4>Learning Objectives</h4><ul>
+        <li>Greet someone in Plains Cree and respond to a greeting</li>
+        <li>Introduce yourself using nitisiyihkâson</li>
+        <li>Ask and answer where someone is from</li>
+        <li>Recognize common conversational particles: âhow, êkosi, pêyakwan</li>
+      </ul></div>
+
+      <div class="lesson-section-title">Core Vocabulary</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">tânisi</div><div class="vc-english">Hello / How are you?</div><div class="vc-pron">taa-ni-si</div></div>
+        <div class="vocab-card"><div class="vc-native cree">namôya nânitaw</div><div class="vc-english">Fine / Not bad</div><div class="vc-pron">na-moo-ya naa-ni-taw</div></div>
+        <div class="vocab-card"><div class="vc-native cree">pêyakwan</div><div class="vc-english">The same / Likewise</div><div class="vc-pron">pay-ya-kwan</div></div>
+        <div class="vocab-card"><div class="vc-native cree">âhow</div><div class="vc-english">Okay / Yes / Alright</div><div class="vc-pron">aa-how</div></div>
+        <div class="vocab-card"><div class="vc-native cree">êkosi</div><div class="vc-english">That's it / That's all</div><div class="vc-pron">ay-ko-si</div></div>
+        <div class="vocab-card"><div class="vc-native cree">kiya mâka</div><div class="vc-english">And you? / How about you?</div><div class="vc-pron">ki-ya maa-ka</div></div>
+        <div class="vocab-card"><div class="vc-native cree">êyiwêhk</div><div class="vc-english">I'm getting by</div><div class="vc-pron">ay-yi-wayhk</div></div>
+        <div class="vocab-card"><div class="vc-native cree">ay, takahki!</div><div class="vc-english">Great! / Really good!</div><div class="vc-pron">ay ta-kah-ki</div></div>
+      </div>
+
+      <div class="grammar-note cree"><div class="gn-label cree">Pronunciation Note</div>
+        <p>In everyday speech, <strong>tânisi</strong> is often contracted to <strong>tânsi</strong>. Long vowels (ā, ī, ō, ê) are held roughly twice as long as short vowels — this distinction changes meaning, so it is important to observe.</p>
+      </div>
+
+      <div class="lesson-section-title">Introducing Yourself</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">nitisiyihkâson</div><div class="vc-english">My name is ___</div><div class="vc-pron">ni-ti-si-yihk-aa-son</div></div>
+        <div class="vocab-card"><div class="vc-native cree">tânisi kitisiyihkâson?</div><div class="vc-english">What is your name?</div><div class="vc-pron">taa-ni-si ki-ti-si-yihk</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nitohcîn</div><div class="vc-english">I am from ___</div><div class="vc-pron">ni-toh-cheen</div></div>
+        <div class="vocab-card"><div class="vc-native cree">tânitê ohci kiya?</div><div class="vc-english">Where are you from?</div><div class="vc-pron">taa-ni-tay oh-chi</div></div>
+      </div>
+
+      <div class="lesson-section-title">Dialogue 2.1 — Meeting Someone</div>
+      <div class="dialogue-box">
+        <div class="dialogue-label">Source: Okimāsis (2004) / Ratt (2016) — adapted for learners</div>
+        <div class="dl"><div class="dl-spk cree">A:</div><div><div class="dl-native">Tânisi.</div><div class="dl-english">Hello, how are you?</div></div></div>
+        <div class="dl"><div class="dl-spk cree">B:</div><div><div class="dl-native">Namôya nânitaw. Kiya mâka?</div><div class="dl-english">Fine. And you?</div></div></div>
+        <div class="dl"><div class="dl-spk cree">A:</div><div><div class="dl-native">Pêyakwan. Sarah nitisiyihkâson. Kiya mâka, tânisi kitisiyihkâson?</div><div class="dl-english">The same. My name is Sarah. And you, what is your name?</div></div></div>
+        <div class="dl"><div class="dl-spk cree">B:</div><div><div class="dl-native">James nitisiyihkâson. Tânitê ohci kiya?</div><div class="dl-english">My name is James. Where are you from?</div></div></div>
+        <div class="dl"><div class="dl-spk cree">A:</div><div><div class="dl-native">Maskwacîs ohci niya.</div><div class="dl-english">I am from Maskwacîs.</div></div></div>
+        <div class="dl"><div class="dl-spk cree">B:</div><div><div class="dl-native">Oskana kâ-asastêki ohci niya.</div><div class="dl-english">I am from Regina ("the place where bones are piled").</div></div></div>
+      </div>
+
+      <div class="grammar-note cree"><div class="gn-label cree">Grammar — Word Order</div>
+        <p>Plains Cree has flexible word order, but notice how <em>nitisiyihkâson</em> places the name <em>before</em> the verb — the opposite of English. The verb carries so much grammatical information in Cree that a separate pronoun is often unnecessary.</p>
+      </div>
+
+      <div class="assessment-section">
+        <div class="assess-title">Chapter 2 Assessment</div>
+        <div class="assess-intro">Complete all parts. Part C answers should be compared against the dialogue above.</div>
+        <div class="assess-part">Part A — Multiple Choice</div>
+        <div class="q-block">
+          <div class="q-text">1. How do you say "Hello, how are you?" in Plains Cree?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c2-1')">êkosi</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c2-1')">tânisi</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c2-1')">namôya</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c2-1')">nitohcîn</button></li>
+          </ul><div class="fb" id="f-c2-1"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">2. Which phrase means "My name is ___"?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c2-2')">tânitê ohci kiya?</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c2-2')">pêyakwan</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c2-2')">nitisiyihkâson</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c2-2')">kiya mâka</button></li>
+          </ul><div class="fb" id="f-c2-2"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">3. What does "kiya mâka?" mean?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c2-3')">I am fine</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c2-3')">That's it</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c2-3')">And you? / How about you?</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c2-3')">Where are you from?</button></li>
+          </ul><div class="fb" id="f-c2-3"></div>
+        </div>
+        <div class="assess-part">Part B — Fill in the Blank</div>
+        <div class="q-block">
+          <div class="q-text">4. How do you say "I am from ___" in Cree?</div>
+          <input class="ans-input" type="text" id="i-c2-4" placeholder="nitohcîn">
+          <button class="check-btn" onclick="checkFill('i-c2-4','nitohcîn','f-c2-4')">Check</button>
+          <div class="fb" id="f-c2-4"></div>
+        </div>
+        <div class="assess-part">Part C — Short Writing</div>
+        <div class="q-block">
+          <div class="q-text">5. Write a 2–3 line introduction in Plains Cree: greeting, your name, and where you are from. Review against the dialogue above.</div>
+          <textarea class="ans-textarea" placeholder="Tânisi. ___ nitisiyihkâson. ___ ohci niya."></textarea>
+        </div>
+      </div>
+      <p class="source-note">Source: Okimāsis (2004) <em>Cree: Language of the Plains</em>; Ratt (2016) <em>mâci-nêhiyawêwin</em>. Place name Oskana kâ-asastêki from public Cree language resources.</p>
+    </div>
+
+    <!-- CHAPTER 3 -->
+    <div class="lesson-panel" id="ch-2">
+      <div class="ch-page-header cree">
+        <div class="ch-page-label cree">Plains Cree · Chapter 3</div>
+        <h1 class="ch-page-title">Nouns &amp; Animacy</h1>
+        <div class="ch-page-sub">The most fundamental distinction in Cree grammar</div>
+      </div>
+      <div class="objectives-box"><h4>Learning Objectives</h4><ul>
+        <li>Explain the animate / inanimate distinction in Plains Cree</li>
+        <li>Identify animate nouns using the demonstrative awa</li>
+        <li>Identify inanimate nouns using the demonstrative ôma</li>
+        <li>Form basic plural forms for both categories</li>
+      </ul></div>
+
+      <div class="grammar-note cree"><div class="gn-label cree">The Most Important Rule in Cree</div>
+        <p>All nouns in Plains Cree are classified as either <strong>animate</strong> or <strong>inanimate</strong>. This is not simply about biological life — many things Europeans would consider inanimate are animate in Cree, reflecting a worldview in which spiritual life exists throughout nature. This distinction affects nearly every part of the grammar: verb choice, demonstratives, plurals, and more. It must be memorized for each noun.</p>
+      </div>
+
+      <div class="lesson-section-title">Animate Nouns — awa</div>
+      <p style="font-size:0.87rem;color:var(--muted);margin-bottom:1rem;">Animate nouns use the demonstrative <strong style="color:var(--cree-dark)">awa</strong>. Plural adds <strong>-ak</strong> (or <strong>-wak</strong>).</p>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">nâpêw</div><div class="vc-english">man</div><div class="vc-pron">naa-pay-w</div></div>
+        <div class="vocab-card"><div class="vc-native cree">iskwêw</div><div class="vc-english">woman</div><div class="vc-pron">is-kway-w</div></div>
+        <div class="vocab-card"><div class="vc-native cree">atim</div><div class="vc-english">dog</div><div class="vc-pron">a-tim</div></div>
+        <div class="vocab-card"><div class="vc-native cree">maskwa</div><div class="vc-english">bear</div><div class="vc-pron">mas-kwa</div></div>
+        <div class="vocab-card"><div class="vc-native cree">pihêsiw</div><div class="vc-english">bird (generic)</div><div class="vc-pron">pi-hay-siw</div></div>
+        <div class="vocab-card"><div class="vc-native cree">ayisiyiniw</div><div class="vc-english">person</div><div class="vc-pron">a-yi-si-yi-niw</div></div>
+      </div>
+
+      <div class="lesson-section-title">Inanimate Nouns — ôma</div>
+      <p style="font-size:0.87rem;color:var(--muted);margin-bottom:1rem;">Inanimate nouns use the demonstrative <strong style="color:var(--cree-dark)">ôma</strong>. Plural adds <strong>-a</strong>.</p>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">mîciwin</div><div class="vc-english">food</div><div class="vc-pron">mee-chi-win</div></div>
+        <div class="vocab-card"><div class="vc-native cree">maskisin</div><div class="vc-english">shoe / moccasin</div><div class="vc-pron">mas-ki-sin</div></div>
+        <div class="vocab-card"><div class="vc-native cree">astotin</div><div class="vc-english">hat</div><div class="vc-pron">as-to-tin</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nipiy</div><div class="vc-english">water</div><div class="vc-pron">ni-pi</div></div>
+        <div class="vocab-card"><div class="vc-native cree">sîpiy</div><div class="vc-english">river</div><div class="vc-pron">see-pi</div></div>
+        <div class="vocab-card"><div class="vc-native cree">askiy</div><div class="vc-english">earth / land</div><div class="vc-pron">as-ki</div></div>
+      </div>
+
+      <div class="grammar-note cree"><div class="gn-label cree">Surprising Animate Nouns</div>
+        <p>The noun <strong>asiniy</strong> (rock/stone) is animate in Cree — rocks have spirit in the Cree worldview. Do not try to predict animacy from English logic; it must be learned word by word.</p>
+      </div>
+
+      <div class="lesson-section-title">Colors — and why animacy matters for them</div>
+      <div class="grammar-note cree"><div class="gn-label cree">Colors are verbs in Cree</div>
+        <p>In Plains Cree, color words are <strong>verbs</strong>, not adjectives. This means every color has two forms — an <strong>animate</strong> form (used when describing an animate noun) and an <strong>inanimate</strong> form (used when describing an inanimate noun). If you say "the shirt is red" vs "the dog is red," you use different word forms. This is a direct consequence of the animate/inanimate distinction you learned above.</p>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Color</th><th>Prefix form</th><th>Animate verb (he/she is ___)</th><th>Inanimate verb (it is ___)</th></tr></thead>
+        <tbody>
+          <tr><td>white</td><td class="nt-nat cree">wâpiski-</td><td class="nt-nat cree">wâpiskisiw</td><td class="nt-nat cree">wâpiskâw</td></tr>
+          <tr><td>black</td><td class="nt-nat cree">kaskitêwi-</td><td class="nt-nat cree">kaskitêsiw</td><td class="nt-nat cree">kaskitêwâw</td></tr>
+          <tr><td>red</td><td class="nt-nat cree">mihko-</td><td class="nt-nat cree">mihkosiw</td><td class="nt-nat cree">mihkwâw</td></tr>
+          <tr><td>yellow / orange / brown</td><td class="nt-nat cree">osâwi-</td><td class="nt-nat cree">osâwisiw</td><td class="nt-nat cree">osâwâw</td></tr>
+          <tr><td>green</td><td class="nt-nat cree">askihtako-</td><td class="nt-nat cree">askihtakosiw</td><td class="nt-nat cree">askihtakwâw</td></tr>
+          <tr><td>blue / green / grey</td><td class="nt-nat cree">sîpihko-</td><td class="nt-nat cree">sîpihkosiw</td><td class="nt-nat cree">sîpihkwâw</td></tr>
+        </tbody>
+      </table>
+      <div class="grammar-note cree"><div class="gn-label cree">How Cree categorizes colors differently</div>
+        <p>Notice that Cree uses <strong>osâwi-</strong> for yellow, orange, <em>and</em> brown — these are one color category in Cree, not three. Similarly <strong>sîpihko-</strong> covers blue, green, <em>and</em> grey. The Cree color system reflects a different way of grouping the visual spectrum. Neither system is wrong — they simply organize the world differently.</p>
+        <p>To make a color <strong>dark</strong>, add <em>kaskitê-</em> as a prefix: <em>kaskitê-osâwi-</em> = dark yellow/brown. To make it <strong>light</strong>, add <em>wâpi-</em>: <em>wâpi-sîpihko-</em> = light blue.</p>
+      </div>
+      <p class="source-note" style="margin-bottom:1rem;">Color source: Cree Literacy Network (creeliteracy.org), "All About Colours in Cree" — vocabulary selected by a fluent Cree speaker, consistent with Wolvengrey (2001). Note: the speaker warns that even fluent speakers may use slightly different color terms on different occasions.</p>
+
+      <div class="assessment-section">
+        <div class="assess-title">Chapter 3 Assessment</div>
+        <div class="assess-intro">Animate vs inanimate — the most important distinction in Cree.</div>
+        <div class="assess-part">Part A — Multiple Choice</div>
+        <div class="q-block">
+          <div class="q-text">1. Which demonstrative is used with animate nouns?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c3-1')">ôma</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c3-1')">awa</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c3-1')">ana</button></li>
+          </ul><div class="fb" id="f-c3-1"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">2. What plural suffix do animate nouns use?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c3-2')">-a</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c3-2')">-ak (or -wak)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c3-2')">-is</button></li>
+          </ul><div class="fb" id="f-c3-2"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">3. Which of these is animate in Plains Cree?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c3-3')">mîciwin (food)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c3-3')">sîpiy (river)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c3-3')">asiniy (rock/stone)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c3-3')">maskisin (moccasin)</button></li>
+          </ul><div class="fb" id="f-c3-3"></div>
+        </div>
+        <div class="assess-part">Part B — Classify</div>
+        <div class="q-block">
+          <div class="q-text">4. Classify each word as animate or inanimate: atim (dog) / askiy (land) / maskwa (bear) / nipiy (water)</div>
+          <textarea class="ans-textarea" placeholder="atim = ___; askiy = ___; maskwa = ___; nipiy = ___"></textarea>
+          <p class="fb" style="margin-top:0.4rem;font-size:0.78rem;color:var(--muted);">Answer: atim = animate; askiy = inanimate; maskwa = animate; nipiy = inanimate</p>
+        </div>
+      </div>
+      <p class="source-note">Source: Wolvengrey (2001) <em>nêhiyawêwin: itwêwina</em>; Okimāsis (2004) <em>Cree: Language of the Plains</em>.</p>
+    </div>
+
+    <!-- CHAPTER 4 -->
+    <div class="lesson-panel" id="ch-3">
+      <div class="ch-page-header cree">
+        <div class="ch-page-label cree">Plains Cree · Chapter 4</div>
+        <h1 class="ch-page-title">Numbers &amp; Time</h1>
+        <div class="ch-page-sub">pêyak · nîso · nisto · nêwo · niyânân…</div>
+      </div>
+      <div class="objectives-box"><h4>Learning Objectives</h4><ul>
+        <li>Count from 1 to 20 in Plains Cree</li>
+        <li>Recognize the -osâp suffix pattern for teen numbers</li>
+        <li>Name the days of the week using the number + kîsikâw pattern</li>
+        <li>Name the four seasons</li>
+      </ul></div>
+
+      <div class="lesson-section-title">Numbers 1–10</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">pêyak</div><div class="vc-english">1</div><div class="vc-pron">pay-yak</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nîso</div><div class="vc-english">2</div><div class="vc-pron">nee-so</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nisto</div><div class="vc-english">3</div><div class="vc-pron">nis-to</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nêwo</div><div class="vc-english">4</div><div class="vc-pron">nay-wo</div></div>
+        <div class="vocab-card"><div class="vc-native cree">niyânân</div><div class="vc-english">5</div><div class="vc-pron">ni-yaa-naan</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nikotwâsik</div><div class="vc-english">6</div><div class="vc-pron">ni-ko-twaa-sik</div></div>
+        <div class="vocab-card"><div class="vc-native cree">têpakohp</div><div class="vc-english">7</div><div class="vc-pron">tay-pa-kohp</div></div>
+        <div class="vocab-card"><div class="vc-native cree">ayinânêw</div><div class="vc-english">8</div><div class="vc-pron">a-yi-naa-nayw</div></div>
+        <div class="vocab-card"><div class="vc-native cree">kêkâ-mitâtaht</div><div class="vc-english">9</div><div class="vc-pron">kay-kaa-mi-taa-taht</div></div>
+        <div class="vocab-card"><div class="vc-native cree">mitâtaht</div><div class="vc-english">10</div><div class="vc-pron">mi-taa-taht</div></div>
+      </div>
+
+      <div class="grammar-note cree"><div class="gn-label cree">The Number 9</div>
+        <p><strong>kêkâ-mitâtaht</strong> literally means "almost ten" — a window into subtractive counting logic unique to Cree.</p>
+      </div>
+
+      <div class="lesson-section-title">Numbers 11–20</div>
+      <table class="data-table">
+        <thead><tr><th>#</th><th>Plains Cree (SRO)</th><th>Pattern</th></tr></thead>
+        <tbody>
+          <tr><td>11</td><td class="nt-nat cree">pêyakosâp</td><td class="nt-note">pêyak + osâp</td></tr>
+          <tr><td>12</td><td class="nt-nat cree">nîsosâp</td><td class="nt-note">nîso + osâp</td></tr>
+          <tr><td>13</td><td class="nt-nat cree">nistosâp</td><td class="nt-note">nisto + osâp</td></tr>
+          <tr><td>14</td><td class="nt-nat cree">nêwosâp</td><td class="nt-note">nêwo + osâp</td></tr>
+          <tr><td>15</td><td class="nt-nat cree">niyânânosâp</td><td class="nt-note">niyânân + osâp</td></tr>
+          <tr><td>20</td><td class="nt-nat cree">nistanaw</td><td class="nt-note">distinct word</td></tr>
+        </tbody>
+      </table>
+
+      <div class="lesson-section-title">Days of the Week</div>
+      <table class="data-table">
+        <thead><tr><th>Day</th><th>Plains Cree</th><th>Literal meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Sunday</td><td class="nt-nat cree">pêyakokîsikâw</td><td class="nt-note">first day</td></tr>
+          <tr><td>Monday</td><td class="nt-nat cree">nîsokîsikâw</td><td class="nt-note">second day</td></tr>
+          <tr><td>Tuesday</td><td class="nt-nat cree">nistokîsikâw</td><td class="nt-note">third day</td></tr>
+          <tr><td>Wednesday</td><td class="nt-nat cree">nêwokîsikâw</td><td class="nt-note">fourth day</td></tr>
+          <tr><td>Thursday</td><td class="nt-nat cree">niyânânokîsikâw</td><td class="nt-note">fifth day</td></tr>
+          <tr><td>Friday</td><td class="nt-nat cree">nikotwâsikîsikâw</td><td class="nt-note">sixth day</td></tr>
+          <tr><td>Saturday</td><td class="nt-nat cree">têpakohpkîsikâw</td><td class="nt-note">seventh day</td></tr>
+        </tbody>
+      </table>
+
+      <div class="lesson-section-title">Seasons</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">sîkwan</div><div class="vc-english">spring</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nîpin</div><div class="vc-english">summer</div></div>
+        <div class="vocab-card"><div class="vc-native cree">takwâkin</div><div class="vc-english">autumn / fall</div></div>
+        <div class="vocab-card"><div class="vc-native cree">pipon</div><div class="vc-english">winter</div></div>
+      </div>
+
+      <div class="assessment-section">
+        <div class="assess-title">Chapter 4 Assessment</div>
+        <div class="assess-intro">Numbers and time.</div>
+        <div class="assess-part">Part A — Multiple Choice</div>
+        <div class="q-block">
+          <div class="q-text">1. What does kêkâ-mitâtaht literally mean?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c4-1')">Eight things</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c4-1')">Almost ten</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c4-1')">Six and three</button></li>
+          </ul><div class="fb" id="f-c4-1"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">2. Teen numbers (11–19) in Cree are formed by:</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c4-2')">Entirely new unrelated words</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c4-2')">Base number + osâp suffix</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c4-2')">Doubling the base number</button></li>
+          </ul><div class="fb" id="f-c4-2"></div>
+        </div>
+        <div class="assess-part">Part B — Fill in the Blank</div>
+        <div class="q-block">
+          <div class="q-text">3. The number 7 in Plains Cree is _____.</div>
+          <input class="ans-input" type="text" id="i-c4-3" placeholder="têpakohp">
+          <button class="check-btn" onclick="checkFill('i-c4-3','têpakohp','f-c4-3')">Check</button>
+          <div class="fb" id="f-c4-3"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">4. Wednesday in Cree means "fourth day." Write it: _____.</div>
+          <input class="ans-input" type="text" id="i-c4-4" placeholder="nêwokîsikâw">
+          <button class="check-btn" onclick="checkFill('i-c4-4','nêwokîsikâw','f-c4-4')">Check</button>
+          <div class="fb" id="f-c4-4"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">5. What is the Cree word for "winter"?</div>
+          <input class="ans-input" type="text" id="i-c4-5" placeholder="pipon">
+          <button class="check-btn" onclick="checkFill('i-c4-5','pipon','f-c4-5')">Check</button>
+          <div class="fb" id="f-c4-5"></div>
+        </div>
+      </div>
+      <p class="source-note">Source: Wolvengrey (2001) <em>nêhiyawêwin: itwêwina</em>; Okimāsis (2004) <em>Cree: Language of the Plains</em>.</p>
+    </div>
+
+    <!-- CHAPTER 5 -->
+    <div class="lesson-panel" id="ch-4">
+      <div class="ch-page-header cree">
+        <div class="ch-page-label cree">Plains Cree · Chapter 5</div>
+        <h1 class="ch-page-title">Pronouns &amp; Basic Verbs</h1>
+        <div class="ch-page-sub">niya · kiya · wiya — inclusive vs exclusive we</div>
+      </div>
+      <div class="objectives-box"><h4>Learning Objectives</h4><ul>
+        <li>Use all Plains Cree personal pronouns</li>
+        <li>Understand the inclusive (kîyanân) vs exclusive (nîyanân) "we" distinction</li>
+        <li>Recognize basic animate intransitive verbs (VAI) in 3rd person singular</li>
+        <li>Use weather verbs (VII) and form a simple negative sentence</li>
+      </ul></div>
+
+      <div class="lesson-section-title">Personal Pronouns</div>
+      <table class="data-table">
+        <thead><tr><th>Cree</th><th>English</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td class="nt-nat cree">niya</td><td>I / me</td><td></td></tr>
+          <tr><td class="nt-nat cree">kiya</td><td>you (singular)</td><td></td></tr>
+          <tr><td class="nt-nat cree">wiya</td><td>he / she (singular)</td><td class="nt-note">No gender distinction</td></tr>
+          <tr><td class="nt-nat cree">nîyanân</td><td>we (exclusive)</td><td class="nt-note">Does NOT include the listener</td></tr>
+          <tr><td class="nt-nat cree">kîyanân</td><td>we (inclusive)</td><td class="nt-note">INCLUDES the listener</td></tr>
+          <tr><td class="nt-nat cree">kiyawâw</td><td>you (plural)</td><td></td></tr>
+          <tr><td class="nt-nat cree">wiyawâw</td><td>they (plural)</td><td></td></tr>
+        </tbody>
+      </table>
+
+      <div class="grammar-note cree"><div class="gn-label cree">Inclusive vs Exclusive "We"</div>
+        <p><strong>kîyanân</strong> = "we — you and I together." <strong>nîyanân</strong> = "we — but not you." This distinction is grammatically required in Cree and does not exist in English. It must be learned carefully.</p>
+      </div>
+
+      <div class="lesson-section-title">Basic Verbs (VAI — 3rd person singular forms)</div>
+      <div class="limitation-note">⚠ Note: Cree verbs do not have infinitives. The forms below are 3rd person singular conjugations (he/she ___). Full verb conjugation across all persons and classes (VAI, VII, VTA, VTI) is advanced content requiring dedicated study.</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">nipâw</div><div class="vc-english">he/she sleeps</div><div class="vc-pron">ni-paw</div></div>
+        <div class="vocab-card"><div class="vc-native cree">pimipahtâw</div><div class="vc-english">he/she runs</div><div class="vc-pron">pi-mi-pah-taw</div></div>
+        <div class="vocab-card"><div class="vc-native cree">mîcisow</div><div class="vc-english">he/she eats</div><div class="vc-pron">mee-tsi-sow</div></div>
+        <div class="vocab-card"><div class="vc-native cree">atoskêw</div><div class="vc-english">he/she works</div><div class="vc-pron">a-tos-kay-w</div></div>
+        <div class="vocab-card"><div class="vc-native cree">pê-itohtêw</div><div class="vc-english">he/she comes / is coming</div><div class="vc-pron">pay-i-toh-tay-w</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nakatêw</div><div class="vc-english">he/she leaves / departs</div><div class="vc-pron">na-ka-tay-w</div></div>
+        <div class="vocab-card"><div class="vc-native cree">ayâw</div><div class="vc-english">he/she is (located); there is</div><div class="vc-pron">a-yaw</div></div>
+        <div class="vocab-card"><div class="vc-native cree">pîkiskwêw</div><div class="vc-english">he/she speaks / talks</div><div class="vc-pron">pee-ki-skway-w</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nîmihitow</div><div class="vc-english">he/she dances</div><div class="vc-pron">nee-mi-hi-tow</div></div>
+        <div class="vocab-card"><div class="vc-native cree">matwêhikêw</div><div class="vc-english">he/she drums / beats a drum</div><div class="vc-pron">mat-way-hi-kay-w</div></div>
+      </div>
+
+      <div class="lesson-section-title">Weather Verbs (VII)</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">kîsikâw</div><div class="vc-english">it is a nice day</div></div>
+        <div class="vocab-card"><div class="vc-native cree">tipiskâw</div><div class="vc-english">it is night</div></div>
+        <div class="vocab-card"><div class="vc-native cree">kimiwan</div><div class="vc-english">it is raining</div></div>
+        <div class="vocab-card"><div class="vc-native cree">mispon</div><div class="vc-english">it is snowing</div></div>
+        <div class="vocab-card"><div class="vc-native cree">yôtin</div><div class="vc-english">it is windy</div></div>
+      </div>
+
+      <div class="grammar-note cree"><div class="gn-label cree">Negation</div>
+        <p>Place <strong>namôya</strong> before a verb to negate it: <em>namôya nipâw</em> = "he/she does not sleep." For prohibitions ("don't!"), use <strong>êkâ</strong>.</p>
+      </div>
+
+      <div class="assessment-section">
+        <div class="assess-title">Chapter 5 Assessment</div>
+        <div class="assess-part">Part A — Multiple Choice</div>
+        <div class="q-block">
+          <div class="q-text">1. Which pronoun means "we — including the person you are speaking to"?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c5-1')">nîyanân</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c5-1')">kîyanân</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c5-1')">kiyawâw</button></li>
+          </ul><div class="fb" id="f-c5-1"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">2. "wiya" means:</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c5-2')">I / me</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c5-2')">you (singular)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c5-2')">he / she (no gender distinction)</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c5-2')">they (plural)</button></li>
+          </ul><div class="fb" id="f-c5-2"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">3. "mispon" means:</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c5-3')">it is raining</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c5-3')">it is windy</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c5-3')">it is snowing</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c5-3')">it is a nice day</button></li>
+          </ul><div class="fb" id="f-c5-3"></div>
+        </div>
+        <div class="assess-part">Part B — Fill in</div>
+        <div class="q-block">
+          <div class="q-text">4. To negate a statement in Cree, place _____ before the verb.</div>
+          <input class="ans-input" type="text" id="i-c5-4" placeholder="namôya">
+          <button class="check-btn" onclick="checkFill('i-c5-4','namôya','f-c5-4')">Check</button>
+          <div class="fb" id="f-c5-4"></div>
+        </div>
+      </div>
+      <p class="source-note">Source: Okimāsis (2004); Wolvengrey (2001); itwêwina dictionary (altlab.app).</p>
+    </div>
+
+    <!-- CHAPTER 6 -->
+    <div class="lesson-panel" id="ch-5">
+      <div class="ch-page-header cree">
+        <div class="ch-page-label cree">Plains Cree · Chapter 6</div>
+        <h1 class="ch-page-title">Family &amp; Kinship</h1>
+        <div class="ch-page-sub">nikâwiy · nôhkom · nimosôm · nistês</div>
+      </div>
+      <div class="objectives-box"><h4>Learning Objectives</h4><ul>
+        <li>Use core Cree kinship terms with the ni- (my) possessive prefix</li>
+        <li>Understand the ki- (your) and o- (his/her) prefix pattern</li>
+        <li>Describe a basic family unit in Cree</li>
+      </ul></div>
+
+      <div class="lesson-section-title">Kinship Terms with ni- (my)</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">nôhtâwiy</div><div class="vc-english">my father</div><div class="vc-pron">noh-taa-wiy</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nikâwiy</div><div class="vc-english">my mother</div><div class="vc-pron">ni-kaa-wiy</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nôhkom</div><div class="vc-english">my grandmother</div><div class="vc-pron">noh-kom</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nimosôm</div><div class="vc-english">my grandfather</div><div class="vc-pron">ni-mo-sohm</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nistês</div><div class="vc-english">my older brother</div><div class="vc-pron">nis-tays</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nimis</div><div class="vc-english">my older sister</div><div class="vc-pron">ni-mis</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nisîmis</div><div class="vc-english">my younger sibling</div><div class="vc-pron">ni-see-mis</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nitôsim</div><div class="vc-english">my cousin</div><div class="vc-pron">ni-toh-sim</div></div>
+      </div>
+
+      <div class="grammar-note cree"><div class="gn-label cree">Possessive Prefixes</div>
+        <p>Cree kinship terms almost always take a possessive prefix. <strong>ni-</strong> = my; <strong>ki-</strong> = your; <strong>o-</strong> = his/her. So "your mother" is <em>kikâwiy</em>. At beginner level, focus on the ni- forms first — they are the most commonly taught.</p>
+      </div>
+
+      <div class="lesson-section-title">Dialogue 6.1 — Talking About Family</div>
+      <div class="dialogue-box">
+        <div class="dialogue-label">Short dialogue — source: Okimāsis (2004)</div>
+        <div class="dl"><div class="dl-spk cree">A:</div><div><div class="dl-native">Awîna awa?</div><div class="dl-english">Who is this?</div></div></div>
+        <div class="dl"><div class="dl-spk cree">B:</div><div><div class="dl-native">Nôhkom awa.</div><div class="dl-english">This is my grandmother.</div></div></div>
+        <div class="dl"><div class="dl-spk cree">A:</div><div><div class="dl-native">Takahki!</div><div class="dl-english">That's wonderful!</div></div></div>
+      </div>
+
+      <div class="assessment-section">
+        <div class="assess-title">Chapter 6 Assessment</div>
+        <div class="assess-part">Part A — Multiple Choice</div>
+        <div class="q-block">
+          <div class="q-text">1. What does "nôhkom" mean?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c6-1')">my father</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c6-1')">my grandfather</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c6-1')">my grandmother</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c6-1')">my older sister</button></li>
+          </ul><div class="fb" id="f-c6-1"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">2. The prefix ki- on a kinship term means:</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c6-2')">my</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c6-2')">your</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c6-2')">his/her</button></li>
+          </ul><div class="fb" id="f-c6-2"></div>
+        </div>
+        <div class="assess-part">Part B — Short Answer</div>
+        <div class="q-block">
+          <div class="q-text">3. Using the ni- prefix, write "my older brother" and "my mother" in Cree.</div>
+          <textarea class="ans-textarea" placeholder="my older brother = ___; my mother = ___"></textarea>
+          <p class="fb" style="margin-top:0.4rem;font-size:0.78rem;color:var(--muted);">Answer: nistês; nikâwiy</p>
+        </div>
+      </div>
+      <p class="source-note">Source: Wolvengrey (2001) <em>nêhiyawêwin: itwêwina</em>; Okimāsis (2004).</p>
+    </div>
+
+    <!-- CHAPTER 7 -->
+    <div class="lesson-panel" id="ch-6">
+      <div class="ch-page-header cree">
+        <div class="ch-page-label cree">Plains Cree · Chapter 7</div>
+        <h1 class="ch-page-title">Nature &amp; the Land</h1>
+        <div class="ch-page-sub">askiy · sîpiy · sâkahikan · kihêw</div>
+      </div>
+      <div class="objectives-box"><h4>Learning Objectives</h4><ul>
+        <li>Name key landscape features of the Plains Cree territory</li>
+        <li>Identify Plains animals using animate vocabulary</li>
+        <li>Use VII weather verbs in context</li>
+        <li>Translate short Cree sentences using learned vocabulary</li>
+      </ul></div>
+
+      <div class="lesson-section-title">Land &amp; Water</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">askiy</div><div class="vc-english">earth / land / world</div><div class="vc-pron">as-ki</div></div>
+        <div class="vocab-card"><div class="vc-native cree">sîpiy</div><div class="vc-english">river</div><div class="vc-pron">see-pi</div></div>
+        <div class="vocab-card"><div class="vc-native cree">sâkahikan</div><div class="vc-english">lake</div><div class="vc-pron">saa-ka-hi-kan</div></div>
+        <div class="vocab-card"><div class="vc-native cree">nipiy</div><div class="vc-english">water</div><div class="vc-pron">ni-pi</div></div>
+        <div class="vocab-card"><div class="vc-native cree">mîtos</div><div class="vc-english">poplar tree</div><div class="vc-pron">mee-tos</div></div>
+        <div class="vocab-card"><div class="vc-native cree">wâpanaw</div><div class="vc-english">the east / morning light</div><div class="vc-pron">waa-pa-naw</div></div>
+        <div class="vocab-card"><div class="vc-native cree">waskahikanihk</div><div class="vc-english">in the settlement / at the village</div><div class="vc-pron">was-ka-hi-ka-nihk</div></div>
+        <div class="vocab-card"><div class="vc-native cree">miskinâhk</div><div class="vc-english">turtle (animate)</div><div class="vc-pron">mis-ki-naak</div></div>
+        <div class="vocab-card"><div class="vc-native cree">paskwâw</div><div class="vc-english">prairie / plain</div><div class="vc-pron">pas-kwaw</div></div>
+        <div class="vocab-card"><div class="vc-native cree">wâsêskwan</div><div class="vc-english">it is clear / sunny sky</div><div class="vc-pron">waa-says-kwan</div></div>
+      </div>
+
+      <div class="lesson-section-title">Animals (Animate Nouns)</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">maskwa</div><div class="vc-english">bear</div><div class="vc-pron">mas-kwa</div></div>
+        <div class="vocab-card"><div class="vc-native cree">môswa</div><div class="vc-english">moose</div><div class="vc-pron">mohs-wa</div></div>
+        <div class="vocab-card"><div class="vc-native cree">mahihkan</div><div class="vc-english">wolf</div><div class="vc-pron">ma-hih-kan</div></div>
+        <div class="vocab-card"><div class="vc-native cree">kihêw</div><div class="vc-english">eagle</div><div class="vc-pron">ki-hay-w</div></div>
+        <div class="vocab-card"><div class="vc-native cree">mîstatim</div><div class="vc-english">horse</div><div class="vc-pron">mee-sta-tim</div></div>
+        <div class="vocab-card"><div class="vc-native cree">sîsîp</div><div class="vc-english">duck (animate)</div><div class="vc-pron">see-seep</div></div>
+        <div class="vocab-card"><div class="vc-native cree">kihci-mîstahi-maskwa</div><div class="vc-english">grizzly bear</div><div class="vc-pron">ki-htsi-mees-ta-hi</div></div>
+        <div class="vocab-card"><div class="vc-native cree">wâpos</div><div class="vc-english">rabbit / hare (animate)</div><div class="vc-pron">waa-pos</div></div>
+      </div>
+
+      <div class="lesson-section-title">Weather Review</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">kîsikâw</div><div class="vc-english">it is a nice day</div></div>
+        <div class="vocab-card"><div class="vc-native cree">kimiwan</div><div class="vc-english">it is raining</div></div>
+        <div class="vocab-card"><div class="vc-native cree">mispon</div><div class="vc-english">it is snowing</div></div>
+        <div class="vocab-card"><div class="vc-native cree">yôtin</div><div class="vc-english">it is windy</div></div>
+      </div>
+
+      <div class="assessment-section">
+        <div class="assess-title">Chapter 7 Assessment</div>
+        <div class="assess-part">Part A — Multiple Choice</div>
+        <div class="q-block">
+          <div class="q-text">1. What does "askiy" mean?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c7-1')">river</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c7-1')">tree</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c7-1')">earth / land / world</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c7-1')">lake</button></li>
+          </ul><div class="fb" id="f-c7-1"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">2. Which word means "eagle"?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c7-2')">môswa</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c7-2')">kihêw</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c7-2')">mahihkan</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c7-2')">mîstatim</button></li>
+          </ul><div class="fb" id="f-c7-2"></div>
+        </div>
+        <div class="assess-part">Part B — Translation</div>
+        <div class="q-block">
+          <div class="q-text">3. Translate to English: "mispon. pê-itohtêw awa maskwa."</div>
+          <textarea class="ans-textarea" placeholder="It is snowing. A bear is coming / approaches."></textarea>
+        </div>
+      </div>
+      <p class="source-note">Source: Wolvengrey (2001); Okimāsis (2004); itwêwina dictionary (altlab.app).</p>
+    </div>
+
+    <!-- CHAPTER 8 -->
+    <div class="lesson-panel" id="ch-7">
+      <div class="ch-page-header cree">
+        <div class="ch-page-label cree">Plains Cree · Chapter 8</div>
+        <h1 class="ch-page-title">Questions &amp; Negation</h1>
+        <div class="ch-page-sub">awîna · kikway · tânite · tânispî · cî</div>
+      </div>
+      <div class="objectives-box"><h4>Learning Objectives</h4><ul>
+        <li>Use Cree question words to form information questions</li>
+        <li>Form yes/no questions using the particle cî</li>
+        <li>Use namôya (negation) and êkâ (prohibition)</li>
+        <li>Construct and translate simple sentences</li>
+      </ul></div>
+
+      <div class="lesson-section-title">Question Words</div>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vc-native cree">awîna</div><div class="vc-english">who?</div><div class="vc-pron">a-wee-na</div></div>
+        <div class="vocab-card"><div class="vc-native cree">kikway</div><div class="vc-english">what?</div><div class="vc-pron">ki-kway</div></div>
+        <div class="vocab-card"><div class="vc-native cree">tânite</div><div class="vc-english">where?</div><div class="vc-pron">taa-ni-tay</div></div>
+        <div class="vocab-card"><div class="vc-native cree">tânispî</div><div class="vc-english">when?</div><div class="vc-pron">taa-nis-pee</div></div>
+        <div class="vocab-card"><div class="vc-native cree">tânisi</div><div class="vc-english">how? / what like?</div><div class="vc-pron">taa-ni-si</div></div>
+        <div class="vocab-card"><div class="vc-native cree">tânêhki</div><div class="vc-english">why?</div><div class="vc-pron">taa-nayk-ki</div></div>
+      </div>
+
+      <div class="grammar-note cree"><div class="gn-label cree">Yes/No Questions with cî</div>
+        <p>Add the particle <strong>cî</strong> to any statement to form a yes/no question: <em>nipâw cî?</em> = "Is he/she sleeping?" It can appear after the verb or at the start of the sentence.</p>
+      </div>
+
+      <div class="lesson-section-title">Sample Sentence Pairs</div>
+      <div class="dialogue-box">
+        <div class="dialogue-label">Positive, negative, and question forms</div>
+        <div class="dl"><div class="dl-spk cree">✓</div><div><div class="dl-native">Nipâw awa nâpêw.</div><div class="dl-english">This man is sleeping.</div></div></div>
+        <div class="dl"><div class="dl-spk cree">✗</div><div><div class="dl-native">Namôya nipâw awa nâpêw.</div><div class="dl-english">This man is not sleeping.</div></div></div>
+        <div class="dl"><div class="dl-spk cree">?</div><div><div class="dl-native">Nipâw cî awa nâpêw?</div><div class="dl-english">Is this man sleeping?</div></div></div>
+        <div class="dl"><div class="dl-spk cree">?</div><div><div class="dl-native">Awîna awa?</div><div class="dl-english">Who is this? (animate)</div></div></div>
+        <div class="dl"><div class="dl-spk cree">?</div><div><div class="dl-native">Kikway ôma?</div><div class="dl-english">What is this? (inanimate)</div></div></div>
+      </div>
+
+      <div class="assessment-section">
+        <div class="assess-title">Chapter 8 Assessment — Final Chapter</div>
+        <div class="assess-intro">This assessment combines skills from all eight chapters.</div>
+        <div class="assess-part">Part A — Multiple Choice</div>
+        <div class="q-block">
+          <div class="q-text">1. Which particle forms a yes/no question?</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c8-1')">namôya</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c8-1')">êkâ</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c8-1')">cî</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c8-1')">âhow</button></li>
+          </ul><div class="fb" id="f-c8-1"></div>
+        </div>
+        <div class="q-block">
+          <div class="q-text">2. "tânêhki" means:</div>
+          <ul class="opts">
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c8-2')">where?</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c8-2')">when?</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,false,'f-c8-2')">who?</button></li>
+            <li><button class="opt-btn" onclick="checkMC(this,true,'f-c8-2')">why?</button></li>
+          </ul><div class="fb" id="f-c8-2"></div>
+        </div>
+        <div class="assess-part">Part B — Translation</div>
+        <div class="q-block">
+          <div class="q-text">3. Translate to Cree: "It is snowing."</div>
+          <input class="ans-input" type="text" id="i-c8-3" placeholder="mispon">
+          <button class="check-btn" onclick="checkFill('i-c8-3','mispon','f-c8-3')">Check</button>
+          <div class="fb" id="f-c8-3"></div>
+        </div>
+        <div class="assess-part">Part C — Reflection</div>
+        <div class="q-block">
+          <div class="q-text">4. Name two features of Plains Cree grammar that differ significantly from English. Give an example of each from the chapters.</div>
+          <textarea class="ans-textarea" style="min-height:100px;" placeholder="1. Animacy distinction (awa vs ôma)...&#10;2. Inclusive/exclusive we (kîyanân vs nîyanân)..."></textarea>
+        </div>
+      </div>
+      <p class="source-note">Source: Okimāsis (2004); Wolvengrey (2001); Ratt (2016); itwêwina dictionary (altlab.app).</p>
+    </div>
+
+  </div><!-- /lesson-wrap -->
+</div><!-- /view-lesson -->
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Still Speaking</div>
+      <div class="footer-disclaimer">
+        <strong>⚗ Experimental Project Notice:</strong> Still Speaking is an early-stage, experimental website exploring the use of AI development tools to produce accessible language learning material for underserved Indigenous language communities. Content is grounded in peer-reviewed and community-published sources. This platform does not replace instruction by fluent speakers, elders, or certified language educators.
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="index.html">All Languages</a></li>
+        <li><a href="nakoda.html">Nakoda</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Cree Resources</div>
+      <ul class="footer-links">
+        <li><a href="https://itwewina.altlab.app" target="_blank">itwêwina Dictionary</a></li>
+        <li><a href="https://www.uregina.ca/arts/cree-language" target="_blank">U of Regina Cree</a></li>
+        <li><a href="https://dictionary.plainscree.atlas-ling.ca" target="_blank">Plains Cree Dictionary</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>stillspeaking.netlify.app</span>
+    <span>Plains Cree content verified: Okimāsis (2004) · Ratt (2016) · Wolvengrey (2001)</span>
+  </div>
+</footer>
+
+<script>
+function openChapter(idx) {
+  document.getElementById('view-chapters').style.display = 'none';
+  document.getElementById('view-lesson').style.display = 'block';
+  document.querySelectorAll('.lesson-panel').forEach(p => p.style.display = 'none');
+  var panel = document.getElementById('ch-' + idx);
+  if (panel) panel.style.display = 'block';
+  var titles = ['Sounds & the Writing System','Greetings & Introductions','Nouns & Animacy','Numbers & Time','Pronouns & Basic Verbs','Family & Kinship','Nature & the Land','Questions & Negation'];
+  document.getElementById('lesson-breadcrumb').textContent = 'Chapter ' + (idx+1) + ' — ' + titles[idx];
+  document.getElementById('nav-breadcrumb').textContent = 'Nêhiyawêwin — Chapter ' + (idx+1);
+  window.scrollTo(0,0); document.body.scrollTop = 0; document.documentElement.scrollTop = 0;
+}
+
+function closeChapter() {
+  document.getElementById('view-lesson').style.display = 'none';
+  document.getElementById('view-chapters').style.display = 'block';
+  document.getElementById('nav-breadcrumb').textContent = 'Plains Cree — Nêhiyawêwin';
+  window.scrollTo(0,0); document.body.scrollTop = 0; document.documentElement.scrollTop = 0;
+}
+
+function checkMC(btn, correct, fbId) {
+  var block = btn.closest('.q-block');
+  block.querySelectorAll('.opt-btn').forEach(function(b) { b.disabled = true; });
+  btn.classList.add(correct ? 'correct' : 'wrong');
+  var fb = document.getElementById(fbId);
+  fb.textContent = correct ? '✓ Correct!' : '✗ Not quite — review the lesson above.';
+  fb.className = 'fb ' + (correct ? 'ok' : 'no');
+}
+
+function checkFill(inputId, answer, fbId) {
+  var val = document.getElementById(inputId).value.trim();
+  var fb = document.getElementById(fbId);
+  var norm = function(s) { return s.toLowerCase().replace(/[āîōêâî]/g, function(c) { return {ā:'a',ō:'o',ê:'e',â:'a',î:'i'}[c]||c; }); };
+  if (norm(val) === norm(answer)) {
+    fb.textContent = '✓ Correct!'; fb.className = 'fb ok';
+  } else {
+    fb.textContent = '✗ Expected: ' + answer; fb.className = 'fb no';
+  }
+}
+</script>
+</body>
+</html>
